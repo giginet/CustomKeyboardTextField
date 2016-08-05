@@ -20,6 +20,8 @@
 		07C5E9B61D54E2790042C657 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07C5E9AF1D54E2790042C657 /* Main.storyboard */; };
 		07C5E9B81D54E2790042C657 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5E9B21D54E2790042C657 /* ViewController.swift */; };
 		07C5E9BA1D54E2FF0042C657 /* SamplePickerKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5E9B91D54E2FF0042C657 /* SamplePickerKeyboardView.swift */; };
+		07C5E9BC1D54F3D30042C657 /* UIDatePickerKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5E9BB1D54F3D30042C657 /* UIDatePickerKeyboard.swift */; };
+		07C5E9BE1D54F4600042C657 /* AccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5E9BD1D54F4600042C657 /* AccessoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		07C5E9B11D54E2790042C657 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07C5E9B21D54E2790042C657 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		07C5E9B91D54E2FF0042C657 /* SamplePickerKeyboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SamplePickerKeyboardView.swift; sourceTree = "<group>"; };
+		07C5E9BB1D54F3D30042C657 /* UIDatePickerKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDatePickerKeyboard.swift; sourceTree = "<group>"; };
+		07C5E9BD1D54F4600042C657 /* AccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				07C5E9A71D54E1730042C657 /* UIPickerViewKeyboard.swift */,
+				07C5E9BB1D54F3D30042C657 /* UIDatePickerKeyboard.swift */,
+				07C5E9BD1D54F4600042C657 /* AccessoryView.swift */,
 			);
 			name = CustomKeyboards;
 			sourceTree = "<group>";
@@ -282,6 +288,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07C5E9BC1D54F3D30042C657 /* UIDatePickerKeyboard.swift in Sources */,
+				07C5E9BE1D54F4600042C657 /* AccessoryView.swift in Sources */,
 				07C5E9A21D54E0890042C657 /* CustomKeyboardViewFactory.swift in Sources */,
 				07C5E9A81D54E1730042C657 /* UIPickerViewKeyboard.swift in Sources */,
 				07C5E9A51D54E09A0042C657 /* CustomKeyboardTextField.swift in Sources */,

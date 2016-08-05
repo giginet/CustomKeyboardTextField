@@ -6,7 +6,7 @@ public protocol PickerKeyboardDataSource {
     func rowTitles(by component: Int) -> [String]
 }
 
-extension PickerKeyboardDataSource {
+public extension PickerKeyboardDataSource {
     var numberOfComponents: Int {
         return 1
     }
@@ -44,33 +44,6 @@ class PickerInputView<DataSource: PickerKeyboardDataSource>: UIPickerView, UIPic
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         textField?.text = pickerKeyboardDataSource.rowTitles(by: component)[row]
-    }
-}
-
-class PickerInputAccessoryView: UIToolbar {
-    var toolbar = UIToolbar()
-    let toolbarHeight: CGFloat = 44.0
-    weak var textField: UITextField? = nil
-    
-    init() {
-        super.init(frame: CGRect(x: 0, y: 0, width: 0, height: toolbarHeight))
-        
-        let doneItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(doneButtonDidTap(_:)))
-        let cancelItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: #selector(cancelButtonDidTap(_:)))
-        setItems([cancelItem, doneItem], animated: true)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func cancelButtonDidTap(sender: UIBarButtonItem) {
-        textField?.text = ""
-        textField?.endEditing(true)
-    }
-    
-    func doneButtonDidTap(sender: UIBarButtonItem) {
-        textField?.endEditing(true)
     }
 }
 

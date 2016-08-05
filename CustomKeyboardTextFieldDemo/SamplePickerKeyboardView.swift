@@ -10,3 +10,8 @@ struct SamplePickerKeyboardDataSource: PickerKeyboardDataSource {
 }
 
 typealias SamplePickerTextField = CustomKeyboardTextField<PickerKeyboardViewProvider<SamplePickerKeyboardDataSource>>
+
+struct SampleDatePickerKeyboardDataSource: DatePickerKeyboardDataSource {
+}
+
+typealias SampleDatePickerTextField = CustomKeyboardTextField<DatePickerKeyboardViewProvider<SampleDatePickerKeyboardDataSource>>
