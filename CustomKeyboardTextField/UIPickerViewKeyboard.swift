@@ -20,7 +20,8 @@ class PickerInputView<DataSource: PickerKeyboardDataSource>: UIPickerView, UIPic
         fatalError("init(coder:) has not been implemented")
     }
     
-    required init(pickerKeyboardViewDataSource: DataSource) {
+    required init(with textField: UITextField, pickerKeyboardViewDataSource: DataSource) {
+        self.textField = textField
         self.pickerKeyboardDataSource = pickerKeyboardViewDataSource
         
         super.init(frame: CGRect.zero)
@@ -49,14 +50,14 @@ class PickerInputView<DataSource: PickerKeyboardDataSource>: UIPickerView, UIPic
 
 public class PickerKeyboardViewProvider<DataSource: PickerKeyboardDataSource>: CustomKeyboardViewProvider {
     let dataSource: DataSource = DataSource()
-    public weak var textField: UITextField? = nil
+    public weak var textField: UITextField!
     
     required public init(with textField: UITextField) {
         self.textField = textField
     }
     
     public func inputView() -> UIView? {
-        let picker = PickerInputView(pickerKeyboardViewDataSource: dataSource)
+        let picker = PickerInputView(with: textField, pickerKeyboardViewDataSource: dataSource)
         picker.textField = textField
         return picker
     }

@@ -48,7 +48,7 @@ public extension DatePickerKeyboardDataSource {
     }
     
     var datePickerMode: UIDatePickerMode {
-        return .Time
+        return .DateAndTime
     }
     
     var timeFormat: String {
@@ -64,7 +64,7 @@ class DatePickerInputView<DataSource: DatePickerKeyboardDataSource>: UIDatePicke
         fatalError("init(coder:) has not been implemented")
     }
     
-    required init(datePickerKeyboardViewDataSource: DataSource) {
+    required init(with textField: UITextField, datePickerKeyboardViewDataSource: DataSource) {
         self.datePickerKeyboardDataSource = datePickerKeyboardViewDataSource
         
         super.init(frame: CGRect.zero)
@@ -83,22 +83,30 @@ class DatePickerInputView<DataSource: DatePickerKeyboardDataSource>: UIDatePicke
     }
     
     func dateIsChanged(sender: UIDatePicker) {
+        textField?.text = inputString()
+    }
+    
+    private func inputString() -> String {
         let formatter = NSDateFormatter()
         formatter.dateFormat = datePickerKeyboardDataSource.timeFormat
-        textField?.text = formatter.stringFromDate(sender.date)
+        return formatter.stringFromDate(date)
+    }
+    
+    func didTapDoneButton() {
+        textField?.text = inputString()
     }
 }
 
 public class DatePickerKeyboardViewProvider<DataSource: DatePickerKeyboardDataSource>: CustomKeyboardViewProvider {
     let dataSource: DataSource = DataSource()
-    public weak var textField: UITextField? = nil
+    public weak var textField: UITextField!
     
     required public init(with textField: UITextField) {
         self.textField = textField
     }
     
     public func inputView() -> UIView? {
-        let picker = DatePickerInputView(datePickerKeyboardViewDataSource: dataSource)
+        let picker = DatePickerInputView(with: textField, datePickerKeyboardViewDataSource: dataSource)
         picker.textField = textField
         return picker
     }
