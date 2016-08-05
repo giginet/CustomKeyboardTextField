@@ -2,11 +2,18 @@ import UIKit
 
 public protocol PickerKeyboardDataSource {
     init()
-    var dataList: [String] { get }
+    var numberOfComponents: Int { get }
+    func rowTitles(by component: Int) -> [String]
+}
+
+extension PickerKeyboardDataSource {
+    var numberOfComponents: Int {
+        return 1
+    }
 }
 
 class PickerInputView<DataSource: PickerKeyboardDataSource>: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
-    let pickerKeyboardViewDataSource: DataSource
+    let pickerKeyboardDataSource: DataSource
     weak var textField: UITextField? = nil
     
     required init?(coder aDecoder: NSCoder) {
@@ -14,7 +21,7 @@ class PickerInputView<DataSource: PickerKeyboardDataSource>: UIPickerView, UIPic
     }
     
     required init(pickerKeyboardViewDataSource: DataSource) {
-        self.pickerKeyboardViewDataSource = pickerKeyboardViewDataSource
+        self.pickerKeyboardDataSource = pickerKeyboardViewDataSource
         
         super.init(frame: CGRect.zero)
         
@@ -24,31 +31,32 @@ class PickerInputView<DataSource: PickerKeyboardDataSource>: UIPickerView, UIPic
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
+        return pickerKeyboardDataSource.numberOfComponents
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerKeyboardViewDataSource.dataList.count
+        return pickerKeyboardDataSource.rowTitles(by: component).count
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerKeyboardViewDataSource.dataList[row]
+        return pickerKeyboardDataSource.rowTitles(by: component)[row]
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        textField?.text = pickerKeyboardViewDataSource.dataList[row]
+        textField?.text = pickerKeyboardDataSource.rowTitles(by: component)[row]
     }
 }
 
 class PickerInputAccessoryView: UIToolbar {
-    var toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 0, height: 35))
+    var toolbar = UIToolbar()
+    let toolbarHeight: CGFloat = 44.0
     weak var textField: UITextField? = nil
     
     init() {
-        super.init(frame: CGRect(x: 0, y: 0, width: 0, height: 35))
+        super.init(frame: CGRect(x: 0, y: 0, width: 0, height: toolbarHeight))
         
-        let doneItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(done))
-        let cancelItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: #selector(cancel))
+        let doneItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(doneButtonDidTap(_:)))
+        let cancelItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: #selector(cancelButtonDidTap(_:)))
         setItems([cancelItem, doneItem], animated: true)
     }
     
@@ -56,17 +64,17 @@ class PickerInputAccessoryView: UIToolbar {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func cancel() {
+    func cancelButtonDidTap(sender: UIBarButtonItem) {
         textField?.text = ""
         textField?.endEditing(true)
     }
     
-    func done() {
+    func doneButtonDidTap(sender: UIBarButtonItem) {
         textField?.endEditing(true)
     }
 }
 
-public class PickerKeyboardViewFactory<DataSource: PickerKeyboardDataSource>: CustomKeyboardViewFactory {
+public class PickerKeyboardViewProvider<DataSource: PickerKeyboardDataSource>: CustomKeyboardViewProvider {
     let dataSource: DataSource = DataSource()
     public weak var textField: UITextField? = nil
     

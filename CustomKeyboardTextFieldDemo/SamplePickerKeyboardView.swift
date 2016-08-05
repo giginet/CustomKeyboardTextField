@@ -2,10 +2,11 @@ import Foundation
 import CustomKeyboardTextField
 
 struct SamplePickerKeyboardDataSource: PickerKeyboardDataSource {
-    let dataList = ["a", "b", "c"]
+    let numberOfComponents = 1
     
-    init() {
+    func rowTitles(by component: Int) -> [String] {
+        return ["a", "b", "c"]
     }
 }
 
-typealias SamplePickerTextField = CustomKeyboardTextField<PickerKeyboardViewFactory<SamplePickerKeyboardDataSource>>
+typealias SamplePickerTextField = CustomKeyboardTextField<PickerKeyboardViewProvider<SamplePickerKeyboardDataSource>>

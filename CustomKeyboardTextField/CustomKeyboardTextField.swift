@@ -1,8 +1,8 @@
 import UIKit
 
-public class CustomKeyboardTextField<KeyboardViewFactory: CustomKeyboardViewFactory>: UITextField {
-    var factory: CustomKeyboardViewFactory {
-        return KeyboardViewFactory(with: self)
+public class CustomKeyboardTextField<KeyboardViewProvider: CustomKeyboardViewProvider>: UITextField {
+    var provider: CustomKeyboardViewProvider {
+        return KeyboardViewProvider(with: self)
     }
     
     public convenience init() {
@@ -12,7 +12,7 @@ public class CustomKeyboardTextField<KeyboardViewFactory: CustomKeyboardViewFact
     public override init(frame frame: CGRect) {
         super.init(frame: frame)
         
-        inputView = factory.inputView()
-        inputAccessoryView = factory.inputAccessoryView()
+        inputView = provider.inputView()
+        inputAccessoryView = provider.inputAccessoryView()
     }
 }
