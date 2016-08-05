@@ -67,3 +67,5 @@ public class PickerKeyboardViewProvider<DataSource: PickerKeyboardDataSource>: C
         return accessoryView
     }
 }
+
+public class PickerKeyboardTextField<DataSource: PickerKeyboardDataSource>: CustomKeyboardTextField<PickerKeyboardViewProvider<DataSource>> { }

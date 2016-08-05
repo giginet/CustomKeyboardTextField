@@ -109,3 +109,5 @@ public class DatePickerKeyboardViewProvider<DataSource: DatePickerKeyboardDataSo
         return accessoryView
     }
 }
+
+public class DatePickerKeyboardTextField<DataSource: DatePickerKeyboardDataSource>: CustomKeyboardTextField<DatePickerKeyboardViewProvider<DataSource>> { }
