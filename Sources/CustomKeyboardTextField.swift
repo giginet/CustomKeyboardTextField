@@ -21,7 +21,7 @@ public class CustomKeyboardTextField<KeyboardViewProvider: CustomKeyboardViewPro
         self.init(frame: CGRect.zero)
     }
 
-    public override init(frame frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
 
         delegate = self

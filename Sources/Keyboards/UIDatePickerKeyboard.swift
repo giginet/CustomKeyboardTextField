@@ -56,7 +56,7 @@ public extension UIDatePickerKeyboardDataSource {
     }
 }
 
-public class DatePickerInputView<DataSource: UIDatePickerKeyboardDataSource>: UIDatePicker, CustomKeyboardView {
+public class UIDatePickerKeyboard<DataSource: UIDatePickerKeyboardDataSource>: UIDatePicker, CustomKeyboardView {
     public let datePickerKeyboardDataSource: DataSource
     weak public var textField: UITextField? = nil
 
@@ -111,7 +111,7 @@ struct UIDatePickerKeyboardViewProvider<DataSource: UIDatePickerKeyboardDataSour
     }
 
     func inputView(with textField: UITextField) -> CustomKeyboardView? {
-        let picker = DatePickerInputView(with: textField, datePickerKeyboardViewDataSource: dataSource)
+        let picker = UIDatePickerKeyboard(with: textField, datePickerKeyboardViewDataSource: dataSource)
         return picker
     }
 
