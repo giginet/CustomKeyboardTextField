@@ -13,12 +13,6 @@ CustomKeyboardTextField provides easy way to make TextField with custom keyboard
 
 [Demo application](https://appetize.io/app/jv8ddk9ff2uwnf7hr508kbrkwg?device=iphone5s&scale=100&orientation=portrait&osVersion=9.3) is available on Appetize.io.
 
-You can also try by CocoaPods.
-
-```sh
-$ pod try CustomKeyboardTextField
-```
-
 # Usage
 
 ## Simple Picker
