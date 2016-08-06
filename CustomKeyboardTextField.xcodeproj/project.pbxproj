@@ -10,22 +10,22 @@
 		073F47561D55FC6F00865351 /* Bulbasaur.png in Resources */ = {isa = PBXBuildFile; fileRef = 073F47531D55FC6F00865351 /* Bulbasaur.png */; };
 		073F47571D55FC6F00865351 /* Charmander.png in Resources */ = {isa = PBXBuildFile; fileRef = 073F47541D55FC6F00865351 /* Charmander.png */; };
 		073F47581D55FC6F00865351 /* Squirtle.png in Resources */ = {isa = PBXBuildFile; fileRef = 073F47551D55FC6F00865351 /* Squirtle.png */; };
+		075E52FD1D56187800E56723 /* CustomKeyboardTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075E52FC1D56187800E56723 /* CustomKeyboardTextFieldTests.swift */; };
+		075E53061D56188C00E56723 /* CustomKeyboardTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 075E52FF1D56188C00E56723 /* CustomKeyboardTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		075E53071D56188C00E56723 /* CustomKeyboardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075E53001D56188C00E56723 /* CustomKeyboardTextField.swift */; };
+		075E53081D56188C00E56723 /* CustomKeyboardViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075E53011D56188C00E56723 /* CustomKeyboardViewProvider.swift */; };
+		075E53091D56188C00E56723 /* ToolbarAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075E53031D56188C00E56723 /* ToolbarAccessoryView.swift */; };
+		075E530A1D56188C00E56723 /* UIDatePickerKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075E53041D56188C00E56723 /* UIDatePickerKeyboard.swift */; };
+		075E530B1D56188C00E56723 /* UIPickerViewKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075E53051D56188C00E56723 /* UIPickerViewKeyboard.swift */; };
 		07BA1CBB1D55BF8A00BB2E85 /* CustomKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA1CBA1D55BF8A00BB2E85 /* CustomKeyboard.swift */; };
 		07BA1CBD1D55BFAA00BB2E85 /* GamePadKeyboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07BA1CBC1D55BFAA00BB2E85 /* GamePadKeyboardView.xib */; };
-		07C541FB1D54DD880069498C /* CustomKeyboardTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 07C541FA1D54DD880069498C /* CustomKeyboardTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07C542021D54DD880069498C /* CustomKeyboardTextField.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07C541F71D54DD880069498C /* CustomKeyboardTextField.framework */; };
-		07C542071D54DD890069498C /* CustomKeyboardTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C542061D54DD890069498C /* CustomKeyboardTextFieldTests.swift */; };
-		07C5E9A21D54E0890042C657 /* CustomKeyboardViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5E9A11D54E0890042C657 /* CustomKeyboardViewProvider.swift */; };
-		07C5E9A51D54E09A0042C657 /* CustomKeyboardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5E9A41D54E09A0042C657 /* CustomKeyboardTextField.swift */; };
-		07C5E9A81D54E1730042C657 /* UIPickerViewKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5E9A71D54E1730042C657 /* UIPickerViewKeyboard.swift */; };
 		07C5E9A91D54E23C0042C657 /* CustomKeyboardTextField.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07C541F71D54DD880069498C /* CustomKeyboardTextField.framework */; };
 		07C5E9B31D54E2790042C657 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5E9AB1D54E2790042C657 /* AppDelegate.swift */; };
 		07C5E9B41D54E2790042C657 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07C5E9AC1D54E2790042C657 /* Assets.xcassets */; };
 		07C5E9B51D54E2790042C657 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07C5E9AD1D54E2790042C657 /* LaunchScreen.storyboard */; };
 		07C5E9B61D54E2790042C657 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07C5E9AF1D54E2790042C657 /* Main.storyboard */; };
 		07C5E9B81D54E2790042C657 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5E9B21D54E2790042C657 /* ViewController.swift */; };
-		07C5E9BC1D54F3D30042C657 /* UIDatePickerKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5E9BB1D54F3D30042C657 /* UIDatePickerKeyboard.swift */; };
-		07C5E9BE1D54F4600042C657 /* ToolbarAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5E9BD1D54F4600042C657 /* ToolbarAccessoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,26 +42,26 @@
 		073F47531D55FC6F00865351 /* Bulbasaur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bulbasaur.png; sourceTree = "<group>"; };
 		073F47541D55FC6F00865351 /* Charmander.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Charmander.png; sourceTree = "<group>"; };
 		073F47551D55FC6F00865351 /* Squirtle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Squirtle.png; sourceTree = "<group>"; };
+		075E52FC1D56187800E56723 /* CustomKeyboardTextFieldTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomKeyboardTextFieldTests.swift; path = Tests/CustomKeyboardTextField/CustomKeyboardTextFieldTests.swift; sourceTree = SOURCE_ROOT; };
+		075E52FE1D56187D00E56723 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/CustomKeyboardTextField/Info.plist; sourceTree = SOURCE_ROOT; };
+		075E52FF1D56188C00E56723 /* CustomKeyboardTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomKeyboardTextField.h; path = Sources/CustomKeyboardTextField.h; sourceTree = SOURCE_ROOT; };
+		075E53001D56188C00E56723 /* CustomKeyboardTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomKeyboardTextField.swift; path = Sources/CustomKeyboardTextField.swift; sourceTree = SOURCE_ROOT; };
+		075E53011D56188C00E56723 /* CustomKeyboardViewProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomKeyboardViewProvider.swift; path = Sources/CustomKeyboardViewProvider.swift; sourceTree = SOURCE_ROOT; };
+		075E53031D56188C00E56723 /* ToolbarAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarAccessoryView.swift; sourceTree = "<group>"; };
+		075E53041D56188C00E56723 /* UIDatePickerKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDatePickerKeyboard.swift; sourceTree = "<group>"; };
+		075E53051D56188C00E56723 /* UIPickerViewKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPickerViewKeyboard.swift; sourceTree = "<group>"; };
+		075E530C1D56189200E56723 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Sources/Info.plist; sourceTree = SOURCE_ROOT; };
 		07BA1CBA1D55BF8A00BB2E85 /* CustomKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomKeyboard.swift; sourceTree = "<group>"; };
 		07BA1CBC1D55BFAA00BB2E85 /* GamePadKeyboardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GamePadKeyboardView.xib; sourceTree = "<group>"; };
 		07C541F71D54DD880069498C /* CustomKeyboardTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CustomKeyboardTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		07C541FA1D54DD880069498C /* CustomKeyboardTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomKeyboardTextField.h; sourceTree = "<group>"; };
-		07C541FC1D54DD880069498C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07C542011D54DD880069498C /* CustomKeyboardTextFieldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomKeyboardTextFieldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		07C542061D54DD890069498C /* CustomKeyboardTextFieldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomKeyboardTextFieldTests.swift; sourceTree = "<group>"; };
-		07C542081D54DD890069498C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07C5E98F1D54E0720042C657 /* CustomKeyboardTextFieldDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomKeyboardTextFieldDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		07C5E9A11D54E0890042C657 /* CustomKeyboardViewProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomKeyboardViewProvider.swift; sourceTree = "<group>"; };
-		07C5E9A41D54E09A0042C657 /* CustomKeyboardTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomKeyboardTextField.swift; sourceTree = "<group>"; };
-		07C5E9A71D54E1730042C657 /* UIPickerViewKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPickerViewKeyboard.swift; sourceTree = "<group>"; };
 		07C5E9AB1D54E2790042C657 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07C5E9AC1D54E2790042C657 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		07C5E9AE1D54E2790042C657 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		07C5E9B01D54E2790042C657 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		07C5E9B11D54E2790042C657 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07C5E9B21D54E2790042C657 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		07C5E9BB1D54F3D30042C657 /* UIDatePickerKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDatePickerKeyboard.swift; sourceTree = "<group>"; };
-		07C5E9BD1D54F4600042C657 /* ToolbarAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarAccessoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +101,17 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		075E53021D56188C00E56723 /* Keyboards */ = {
+			isa = PBXGroup;
+			children = (
+				075E53031D56188C00E56723 /* ToolbarAccessoryView.swift */,
+				075E53041D56188C00E56723 /* UIDatePickerKeyboard.swift */,
+				075E53051D56188C00E56723 /* UIPickerViewKeyboard.swift */,
+			);
+			name = Keyboards;
+			path = Sources/Keyboards;
+			sourceTree = SOURCE_ROOT;
+		};
 		07C541ED1D54DD880069498C = {
 			isa = PBXGroup;
 			children = (
@@ -124,11 +135,11 @@
 		07C541F91D54DD880069498C /* CustomKeyboardTextField */ = {
 			isa = PBXGroup;
 			children = (
-				07C5E9A61D54E15E0042C657 /* CustomKeyboards */,
-				07C541FA1D54DD880069498C /* CustomKeyboardTextField.h */,
-				07C541FC1D54DD880069498C /* Info.plist */,
-				07C5E9A11D54E0890042C657 /* CustomKeyboardViewProvider.swift */,
-				07C5E9A41D54E09A0042C657 /* CustomKeyboardTextField.swift */,
+				075E530C1D56189200E56723 /* Info.plist */,
+				075E52FF1D56188C00E56723 /* CustomKeyboardTextField.h */,
+				075E53001D56188C00E56723 /* CustomKeyboardTextField.swift */,
+				075E53011D56188C00E56723 /* CustomKeyboardViewProvider.swift */,
+				075E53021D56188C00E56723 /* Keyboards */,
 			);
 			path = CustomKeyboardTextField;
 			sourceTree = "<group>";
@@ -136,20 +147,10 @@
 		07C542051D54DD890069498C /* CustomKeyboardTextFieldTests */ = {
 			isa = PBXGroup;
 			children = (
-				07C542061D54DD890069498C /* CustomKeyboardTextFieldTests.swift */,
-				07C542081D54DD890069498C /* Info.plist */,
+				075E52FC1D56187800E56723 /* CustomKeyboardTextFieldTests.swift */,
+				075E52FE1D56187D00E56723 /* Info.plist */,
 			);
 			path = CustomKeyboardTextFieldTests;
-			sourceTree = "<group>";
-		};
-		07C5E9A61D54E15E0042C657 /* CustomKeyboards */ = {
-			isa = PBXGroup;
-			children = (
-				07C5E9A71D54E1730042C657 /* UIPickerViewKeyboard.swift */,
-				07C5E9BB1D54F3D30042C657 /* UIDatePickerKeyboard.swift */,
-				07C5E9BD1D54F4600042C657 /* ToolbarAccessoryView.swift */,
-			);
-			name = CustomKeyboards;
 			sourceTree = "<group>";
 		};
 		07C5E9AA1D54E2790042C657 /* CustomKeyboardTextFieldDemo */ = {
@@ -175,7 +176,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07C541FB1D54DD880069498C /* CustomKeyboardTextField.h in Headers */,
+				075E53061D56188C00E56723 /* CustomKeyboardTextField.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,11 +313,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07C5E9BC1D54F3D30042C657 /* UIDatePickerKeyboard.swift in Sources */,
-				07C5E9BE1D54F4600042C657 /* ToolbarAccessoryView.swift in Sources */,
-				07C5E9A21D54E0890042C657 /* CustomKeyboardViewProvider.swift in Sources */,
-				07C5E9A81D54E1730042C657 /* UIPickerViewKeyboard.swift in Sources */,
-				07C5E9A51D54E09A0042C657 /* CustomKeyboardTextField.swift in Sources */,
+				075E530A1D56188C00E56723 /* UIDatePickerKeyboard.swift in Sources */,
+				075E53091D56188C00E56723 /* ToolbarAccessoryView.swift in Sources */,
+				075E53081D56188C00E56723 /* CustomKeyboardViewProvider.swift in Sources */,
+				075E53071D56188C00E56723 /* CustomKeyboardTextField.swift in Sources */,
+				075E530B1D56188C00E56723 /* UIPickerViewKeyboard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,7 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07C542071D54DD890069498C /* CustomKeyboardTextFieldTests.swift in Sources */,
+				075E52FD1D56187800E56723 /* CustomKeyboardTextFieldTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,7 +468,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = CustomKeyboardTextField/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.giginet.CustomKeyboardTextField;
@@ -485,7 +486,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = CustomKeyboardTextField/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.giginet.CustomKeyboardTextField;
@@ -497,17 +498,20 @@
 		07C5420F1D54DD890069498C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = CustomKeyboardTextFieldTests/Info.plist;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = Tests/CustomKeyboardTextField/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.giginet.CustomKeyboardTextFieldTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		07C542101D54DD890069498C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = CustomKeyboardTextFieldTests/Info.plist;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = Tests/CustomKeyboardTextField/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.giginet.CustomKeyboardTextFieldTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

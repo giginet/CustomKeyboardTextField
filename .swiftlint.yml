@@ -1,0 +1,7 @@
+included: 
+  - Sources
+  - Tests/CustomKeyboardTextField
+  - CustomKeyboardTextFieldDemo
+disabled_rules:
+  - line_length
+
