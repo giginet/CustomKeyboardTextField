@@ -24,6 +24,12 @@ class PickerInputView<DataSource: PickerKeyboardDataSource>: UIPickerView, UIPic
         showsSelectionIndicator = true
     }
     
+    var currentText: String? {
+        return pickerView(self, titleForRow: selectedRowInComponent(0), forComponent: 0)
+    }
+    
+    // MARK - UIPickerViewDataSource
+    
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -31,6 +37,8 @@ class PickerInputView<DataSource: PickerKeyboardDataSource>: UIPickerView, UIPic
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return pickerKeyboardDataSource.rowTitles.count
     }
+    
+    // MARK - UIPickerViewDelegate
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerKeyboardDataSource.rowTitles[row]
@@ -41,14 +49,11 @@ class PickerInputView<DataSource: PickerKeyboardDataSource>: UIPickerView, UIPic
     }
 }
 
-class PickerKeyboardViewProvider<DataSource: PickerKeyboardDataSource>: CustomKeyboardViewProvider {
+struct PickerKeyboardViewProvider<DataSource: PickerKeyboardDataSource>: CustomKeyboardViewProvider {
     let dataSource: DataSource = DataSource()
     weak var textField: UITextField!
     
-    required init() {
-    }
-    
-    required public init(with textField: UITextField) {
+    public init(with textField: UITextField) {
         self.textField = textField
     }
     
@@ -59,7 +64,7 @@ class PickerKeyboardViewProvider<DataSource: PickerKeyboardDataSource>: CustomKe
     }
     
     func inputAccessoryView(with textField: UITextField) -> CustomKeyboardAccessoryView? {
-        let accessoryView = PickerInputAccessoryView(with: textField)
+        let accessoryView = KeyboardAccessoryView(with: textField)
         accessoryView.textField = textField
         return accessoryView
     }

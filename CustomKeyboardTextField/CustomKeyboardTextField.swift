@@ -1,24 +1,20 @@
 import UIKit
 
-class BaseCustomKeyboardView: UIView, CustomKeyboardView {
-    weak var textField: UITextField? = nil
-    convenience required init(with textField: UITextField) {
-        self.init()
-        self.textField = textField
-    }
-}
-
-class BaseCustomKeyboardAccessoryView: UIView, CustomKeyboardAccessoryView {
-    weak var textField: UITextField? = nil
-    convenience required init(with textField: UITextField) {
-        self.init()
-        self.textField = textField
-    }
-}
-
-public class CustomKeyboardTextField<KeyboardViewProvider: CustomKeyboardViewProvider>: UITextField {
+public class CustomKeyboardTextField<KeyboardViewProvider: CustomKeyboardViewProvider>: UITextField, UITextFieldDelegate {
     var provider: CustomKeyboardViewProvider {
         return KeyboardViewProvider(with: self)
+    }
+    
+    private(set) var customKeyboardView: CustomKeyboardView? {
+        didSet {
+            inputView = customKeyboardView as? UIView
+        }
+    }
+    
+    private(set) var customKeyboardAccessoryView: CustomKeyboardAccessoryView? {
+        didSet {
+            inputAccessoryView = customKeyboardAccessoryView as? UIView
+        }
     }
     
     public convenience init() {
@@ -28,10 +24,21 @@ public class CustomKeyboardTextField<KeyboardViewProvider: CustomKeyboardViewPro
     public override init(frame frame: CGRect) {
         super.init(frame: frame)
         
-        let inputView = provider.inputView(with: self)
-        let inputAccessoryView = provider.inputAccessoryView(with: self)
+        delegate = self
         
-        self.inputView = inputView as? UIView
-        self.inputAccessoryView = inputAccessoryView as? UIView
+        setupCustomKeyboard()
+    }
+    
+    private func setupCustomKeyboard() {
+        customKeyboardView = provider.inputView(with: self)
+        customKeyboardAccessoryView = provider.inputAccessoryView(with: self)
+    }
+    
+    // MARK - UITextFieldDelegate
+    
+    public func textFieldDidBeginEditing(textField: UITextField) {
+        if text == "" {
+            text = customKeyboardView?.currentText
+        }
     }
 }

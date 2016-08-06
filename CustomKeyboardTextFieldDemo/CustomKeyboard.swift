@@ -51,6 +51,10 @@ class GamePadKeyboardView: UIView, CustomKeyboardView {
             textField?.text = "\(text) \(insertText)"
         }
     }
+    
+    var currentText: String? {
+        return ""
+    }
 }
 
 struct GamePadKeyboardProvider: CustomKeyboardViewProvider {

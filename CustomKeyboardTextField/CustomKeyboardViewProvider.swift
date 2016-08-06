@@ -3,6 +3,7 @@ import UIKit
 
 public protocol CustomKeyboardView {
     weak var textField: UITextField? { get }
+    var currentText: String? { get }
 }
 
 public protocol CustomKeyboardAccessoryView {
