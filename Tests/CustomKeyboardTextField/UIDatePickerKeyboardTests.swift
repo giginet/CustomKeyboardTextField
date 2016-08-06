@@ -21,36 +21,36 @@ class UIDatePickerKeyboardTests: XCTestCase {
         formatter.dateFormat = "yyyy/MM/dd HH:mm:ss Z"
         return formatter.dateFromString("2016/08/06 12:25:30 +0900")!
     }
-    
+
     func testAccessoryView() {
         let textField = SimplePickerTextField()
         XCTAssertNotNil(textField.customKeyboardAccessoryView)
         XCTAssertNotNil(textField.inputAccessoryView)
     }
-    
+
     func testDateTimePickerIsChanged() {
         let textField = DateTimePickerTextField()
         guard let pickerView = textField.customKeyboardView as? UIDatePickerKeyboard<DateTimePickerKeyboardDataSource> else {
             XCTFail()
             return
         }
-        
+
         pickerView.setDate(targetDate, animated: false)
         pickerView.dateIsChanged(pickerView)
-        
+
         XCTAssertEqual(textField.text, "2016/08/06 12:25:30 +0900")
     }
-    
+
     func testDatePickerIsChanged() {
         let textField = DatePickerTextField()
         guard let pickerView = textField.customKeyboardView as? UIDatePickerKeyboard<DatePickerKeyboardDataSource> else {
             XCTFail()
             return
         }
-        
+
         pickerView.setDate(targetDate, animated: false)
         pickerView.dateIsChanged(pickerView)
-        
+
         XCTAssertEqual(textField.text, "2016/08/06")
     }
 }

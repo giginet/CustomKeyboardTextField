@@ -55,9 +55,9 @@ public class UIPickerViewKeyboard<DataSource: UIPickerViewKeyboardDataSource>: U
 
 struct PickerKeyboardViewProvider<DataSource: UIPickerViewKeyboardDataSource>: CustomKeyboardProvider {
     let dataSource: DataSource = DataSource()
-    
+
     init() { }
-    
+
     func inputView(with textField: UITextField) -> CustomKeyboardView? {
         let picker = UIPickerViewKeyboard(with: textField, pickerKeyboardViewDataSource: dataSource)
         return picker
