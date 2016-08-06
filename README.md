@@ -5,7 +5,8 @@
 [![Language](https://img.shields.io/badge/language-Swift%202.2-orange.svg)](https://swift.org)
 [![Platform](https://img.shields.io/cocoapods/p/CustomKeyboardTextField.svg?style=flat)](http://cocoadocs.org/docsets/CustomKeyboardTextField)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/CustomKeyboardTextField.svg)](https://img.shields.io/cocoapods/v/CustomKeyboardTextField.svg)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) 
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![License](https://img.shields.io/github/license/giginet/CustomKeyboardTextField.svg)](https://github.com/giginet/CustomKeyboardTextField/blob/master/LICENSE.md)
 
 ![](https://raw.githubusercontent.com/giginet/CustomKeyboardTextField/master/Documentation/Image/demo.gif)
 
@@ -130,6 +131,7 @@ pod "CustomKeyboardTextField"
 # Requirements
 
 - iOS 8 or above
+- Swift 2.2
 
 # Author
 
