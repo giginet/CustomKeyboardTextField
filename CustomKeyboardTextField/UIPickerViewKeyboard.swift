@@ -48,7 +48,7 @@ class PickerInputView<DataSource: PickerKeyboardDataSource>: UIPickerView, UIPic
     }
 }
 
-public class PickerKeyboardViewProvider<DataSource: PickerKeyboardDataSource>: CustomKeyboardViewProvider {
+class PickerKeyboardViewProvider<DataSource: PickerKeyboardDataSource>: CustomKeyboardViewProvider {
     let dataSource: DataSource = DataSource()
     public weak var textField: UITextField!
     
@@ -56,17 +56,21 @@ public class PickerKeyboardViewProvider<DataSource: PickerKeyboardDataSource>: C
         self.textField = textField
     }
     
-    public func inputView() -> UIView? {
+    func inputView() -> UIView? {
         let picker = PickerInputView(with: textField, pickerKeyboardViewDataSource: dataSource)
         picker.textField = textField
         return picker
     }
     
-    public func inputAccessoryView() -> UIView? {
+    func inputAccessoryView() -> UIView? {
         let accessoryView = PickerInputAccessoryView()
         accessoryView.textField = textField
         return accessoryView
     }
 }
 
-public class PickerKeyboardTextField<DataSource: PickerKeyboardDataSource>: CustomKeyboardTextField<PickerKeyboardViewProvider<DataSource>> { }
+public class PickerKeyboardTextField<DataSource: PickerKeyboardDataSource>: CustomKeyboardTextField<PickerKeyboardViewProvider<DataSource>> {
+    public required init() {
+        super.init(frame: CGRect.zero)
+    }
+}

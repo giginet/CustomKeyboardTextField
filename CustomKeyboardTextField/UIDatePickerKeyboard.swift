@@ -97,7 +97,7 @@ class DatePickerInputView<DataSource: DatePickerKeyboardDataSource>: UIDatePicke
     }
 }
 
-public class DatePickerKeyboardViewProvider<DataSource: DatePickerKeyboardDataSource>: CustomKeyboardViewProvider {
+class DatePickerKeyboardViewProvider<DataSource: DatePickerKeyboardDataSource>: CustomKeyboardViewProvider {
     let dataSource: DataSource = DataSource()
     public weak var textField: UITextField!
     
@@ -105,17 +105,21 @@ public class DatePickerKeyboardViewProvider<DataSource: DatePickerKeyboardDataSo
         self.textField = textField
     }
     
-    public func inputView() -> UIView? {
+    func inputView() -> UIView? {
         let picker = DatePickerInputView(with: textField, datePickerKeyboardViewDataSource: dataSource)
         picker.textField = textField
         return picker
     }
     
-    public func inputAccessoryView() -> UIView? {
+    func inputAccessoryView() -> UIView? {
         let accessoryView = PickerInputAccessoryView()
         accessoryView.textField = textField
         return accessoryView
     }
 }
 
-public class DatePickerKeyboardTextField<DataSource: DatePickerKeyboardDataSource>: CustomKeyboardTextField<DatePickerKeyboardViewProvider<DataSource>> { }
+public class DatePickerKeyboardTextField<DataSource: DatePickerKeyboardDataSource>: CustomKeyboardTextField<DatePickerKeyboardViewProvider<DataSource>> {
+    public required init() {
+        super.init(frame: CGRect.zero)
+    }
+}

@@ -19,7 +19,6 @@
 		07C5E9B51D54E2790042C657 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07C5E9AD1D54E2790042C657 /* LaunchScreen.storyboard */; };
 		07C5E9B61D54E2790042C657 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07C5E9AF1D54E2790042C657 /* Main.storyboard */; };
 		07C5E9B81D54E2790042C657 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5E9B21D54E2790042C657 /* ViewController.swift */; };
-		07C5E9BA1D54E2FF0042C657 /* SamplePickerKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5E9B91D54E2FF0042C657 /* SamplePickerKeyboardView.swift */; };
 		07C5E9BC1D54F3D30042C657 /* UIDatePickerKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5E9BB1D54F3D30042C657 /* UIDatePickerKeyboard.swift */; };
 		07C5E9BE1D54F4600042C657 /* AccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C5E9BD1D54F4600042C657 /* AccessoryView.swift */; };
 /* End PBXBuildFile section */
@@ -51,7 +50,6 @@
 		07C5E9B01D54E2790042C657 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		07C5E9B11D54E2790042C657 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07C5E9B21D54E2790042C657 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		07C5E9B91D54E2FF0042C657 /* SamplePickerKeyboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SamplePickerKeyboardView.swift; sourceTree = "<group>"; };
 		07C5E9BB1D54F3D30042C657 /* UIDatePickerKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDatePickerKeyboard.swift; sourceTree = "<group>"; };
 		07C5E9BD1D54F4600042C657 /* AccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,7 +141,6 @@
 				07C5E9AF1D54E2790042C657 /* Main.storyboard */,
 				07C5E9B11D54E2790042C657 /* Info.plist */,
 				07C5E9B21D54E2790042C657 /* ViewController.swift */,
-				07C5E9B91D54E2FF0042C657 /* SamplePickerKeyboardView.swift */,
 			);
 			path = CustomKeyboardTextFieldDemo;
 			sourceTree = SOURCE_ROOT;
@@ -308,7 +305,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07C5E9BA1D54E2FF0042C657 /* SamplePickerKeyboardView.swift in Sources */,
 				07C5E9B81D54E2790042C657 /* ViewController.swift in Sources */,
 				07C5E9B31D54E2790042C657 /* AppDelegate.swift in Sources */,
 			);
@@ -549,6 +545,7 @@
 				07C5E9A01D54E0720042C657 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
