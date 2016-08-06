@@ -138,8 +138,7 @@ struct GamePadKeyboardProvider: CustomKeyboardViewProvider {
     }
     
     func inputAccessoryView(with textField: UITextField) -> CustomKeyboardAccessoryView? {
-        let accessoryView = KeyboardAccessoryView(with: textField)
-        accessoryView.textField = textField
+        let accessoryView = ToolbarKeyboardAccessoryView(with: textField)
         return accessoryView
     }
 }

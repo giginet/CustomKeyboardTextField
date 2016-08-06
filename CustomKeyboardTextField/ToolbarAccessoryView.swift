@@ -1,6 +1,6 @@
 import UIKit
 
-public class KeyboardAccessoryView: UIToolbar, CustomKeyboardAccessoryView {
+public class ToolbarKeyboardAccessoryView: UIToolbar, CustomKeyboardAccessoryView {
     var toolbar = UIToolbar()
     let toolbarHeight: CGFloat = 44.0
     weak public var textField: UITextField? = nil
