@@ -1,7 +1,7 @@
 import Foundation
 import CustomKeyboardTextField
 
-class GamePadKeyboardView: UIView {
+class GamePadKeyboardView: UIView, CustomKeyboardView {
     weak var textField: UITextField?
     
     @IBOutlet weak var aButton: UIButton!
@@ -60,7 +60,7 @@ struct GamePadKeyboardProvider: CustomKeyboardViewProvider {
         self.textField = textField
     }
     
-    func inputView() -> UIView? {
+    func inputView(with textField: UITextField) -> CustomKeyboardView? {
         let gamePadNib = UINib(nibName: "GamePadKeyboardView", bundle: nil)
         if let gamePad = gamePadNib.instantiateWithOwner(nil, options: nil).first as? GamePadKeyboardView {
             gamePad.textField = textField
@@ -69,7 +69,7 @@ struct GamePadKeyboardProvider: CustomKeyboardViewProvider {
         return nil
     }
     
-    func inputAccessoryView() -> UIView? {
+    func inputAccessoryView(with textField: UITextField) -> CustomKeyboardAccessoryView? {
         return nil
     }
 }

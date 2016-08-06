@@ -5,7 +5,7 @@ public protocol PickerKeyboardDataSource {
     var rowTitles: [String] { get }
 }
 
-class PickerInputView<DataSource: PickerKeyboardDataSource>: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
+class PickerInputView<DataSource: PickerKeyboardDataSource>: UIPickerView, UIPickerViewDelegate, CustomKeyboardView, UIPickerViewDataSource {
     let pickerKeyboardDataSource: DataSource
     weak var textField: UITextField? = nil
     
@@ -43,20 +43,23 @@ class PickerInputView<DataSource: PickerKeyboardDataSource>: UIPickerView, UIPic
 
 class PickerKeyboardViewProvider<DataSource: PickerKeyboardDataSource>: CustomKeyboardViewProvider {
     let dataSource: DataSource = DataSource()
-    public weak var textField: UITextField!
+    weak var textField: UITextField!
+    
+    required init() {
+    }
     
     required public init(with textField: UITextField) {
         self.textField = textField
     }
     
-    func inputView() -> UIView? {
+    func inputView(with textField: UITextField) -> CustomKeyboardView? {
         let picker = PickerInputView(with: textField, pickerKeyboardViewDataSource: dataSource)
         picker.textField = textField
         return picker
     }
     
-    func inputAccessoryView() -> UIView? {
-        let accessoryView = PickerInputAccessoryView()
+    func inputAccessoryView(with textField: UITextField) -> CustomKeyboardAccessoryView? {
+        let accessoryView = PickerInputAccessoryView(with: textField)
         accessoryView.textField = textField
         return accessoryView
     }

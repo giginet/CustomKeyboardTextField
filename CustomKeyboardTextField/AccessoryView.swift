@@ -4,14 +4,15 @@ protocol AccessoryViewDelegate: class {
     func didTapDoneButton()
 }
 
-class PickerInputAccessoryView: UIToolbar {
+class PickerInputAccessoryView: UIToolbar, CustomKeyboardAccessoryView {
     var toolbar = UIToolbar()
     let toolbarHeight: CGFloat = 44.0
     weak var textField: UITextField? = nil
     weak var accessoryViewDelegate: AccessoryViewDelegate?
     
-    init() {
+    required init(with textField: UITextField) {
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: toolbarHeight))
+        self.textField = textField
         
         setItems(barItems, animated: true)
     }

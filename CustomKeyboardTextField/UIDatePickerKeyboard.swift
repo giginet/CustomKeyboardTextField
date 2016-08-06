@@ -56,10 +56,10 @@ public extension DatePickerKeyboardDataSource {
     }
 }
 
-class DatePickerInputView<DataSource: DatePickerKeyboardDataSource>: UIDatePicker {
+class DatePickerInputView<DataSource: DatePickerKeyboardDataSource>: UIDatePicker, CustomKeyboardView {
     let datePickerKeyboardDataSource: DataSource
     weak var textField: UITextField? = nil
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -101,18 +101,18 @@ class DatePickerKeyboardViewProvider<DataSource: DatePickerKeyboardDataSource>: 
     let dataSource: DataSource = DataSource()
     public weak var textField: UITextField!
     
-    required public init(with textField: UITextField) {
+    required init(with textField: UITextField) {
         self.textField = textField
     }
     
-    func inputView() -> UIView? {
+    func inputView(with textField: UITextField) -> CustomKeyboardView? {
         let picker = DatePickerInputView(with: textField, datePickerKeyboardViewDataSource: dataSource)
         picker.textField = textField
         return picker
     }
     
-    func inputAccessoryView() -> UIView? {
-        let accessoryView = PickerInputAccessoryView()
+    func inputAccessoryView(with textField: UITextField) -> CustomKeyboardAccessoryView? {
+        let accessoryView = PickerInputAccessoryView(with: textField)
         accessoryView.textField = textField
         return accessoryView
     }

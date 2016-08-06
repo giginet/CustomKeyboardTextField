@@ -3,12 +3,15 @@ import UIKit
 
 public protocol CustomKeyboardView {
     weak var textField: UITextField? { get }
-    init(textField: UITextField)
+}
+
+public protocol CustomKeyboardAccessoryView {
+    weak var textField: UITextField? { get }
 }
 
 public protocol CustomKeyboardViewProvider {
-    init(with textField: UITextField)
     weak var textField: UITextField! { get set }
-    func inputView() -> UIView?
-    func inputAccessoryView() -> UIView?
+    init(with textField: UITextField)
+    func inputView(with textField: UITextField) -> CustomKeyboardView?
+    func inputAccessoryView(with textField: UITextField) -> CustomKeyboardAccessoryView?
 }
