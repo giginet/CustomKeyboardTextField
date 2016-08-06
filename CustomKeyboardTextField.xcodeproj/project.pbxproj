@@ -13,7 +13,7 @@
 		075E52FD1D56187800E56723 /* UIPickerViewKeyboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075E52FC1D56187800E56723 /* UIPickerViewKeyboardTests.swift */; };
 		075E53061D56188C00E56723 /* CustomKeyboardTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 075E52FF1D56188C00E56723 /* CustomKeyboardTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		075E53071D56188C00E56723 /* CustomKeyboardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075E53001D56188C00E56723 /* CustomKeyboardTextField.swift */; };
-		075E53081D56188C00E56723 /* CustomKeyboardViewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075E53011D56188C00E56723 /* CustomKeyboardViewProvider.swift */; };
+		075E53081D56188C00E56723 /* CustomKeyboardProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075E53011D56188C00E56723 /* CustomKeyboardProvider.swift */; };
 		075E53091D56188C00E56723 /* ToolbarAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075E53031D56188C00E56723 /* ToolbarAccessoryView.swift */; };
 		075E530A1D56188C00E56723 /* UIDatePickerKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075E53041D56188C00E56723 /* UIDatePickerKeyboard.swift */; };
 		075E530B1D56188C00E56723 /* UIPickerViewKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075E53051D56188C00E56723 /* UIPickerViewKeyboard.swift */; };
@@ -70,7 +70,7 @@
 		075E52FE1D56187D00E56723 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/CustomKeyboardTextField/Info.plist; sourceTree = SOURCE_ROOT; };
 		075E52FF1D56188C00E56723 /* CustomKeyboardTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomKeyboardTextField.h; path = Sources/CustomKeyboardTextField.h; sourceTree = SOURCE_ROOT; };
 		075E53001D56188C00E56723 /* CustomKeyboardTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomKeyboardTextField.swift; path = Sources/CustomKeyboardTextField.swift; sourceTree = SOURCE_ROOT; };
-		075E53011D56188C00E56723 /* CustomKeyboardViewProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomKeyboardViewProvider.swift; path = Sources/CustomKeyboardViewProvider.swift; sourceTree = SOURCE_ROOT; };
+		075E53011D56188C00E56723 /* CustomKeyboardProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomKeyboardProvider.swift; path = Sources/CustomKeyboardProvider.swift; sourceTree = SOURCE_ROOT; };
 		075E53031D56188C00E56723 /* ToolbarAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolbarAccessoryView.swift; sourceTree = "<group>"; };
 		075E53041D56188C00E56723 /* UIDatePickerKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDatePickerKeyboard.swift; sourceTree = "<group>"; };
 		075E53051D56188C00E56723 /* UIPickerViewKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPickerViewKeyboard.swift; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 				075E530C1D56189200E56723 /* Info.plist */,
 				075E52FF1D56188C00E56723 /* CustomKeyboardTextField.h */,
 				075E53001D56188C00E56723 /* CustomKeyboardTextField.swift */,
-				075E53011D56188C00E56723 /* CustomKeyboardViewProvider.swift */,
+				075E53011D56188C00E56723 /* CustomKeyboardProvider.swift */,
 				075E53021D56188C00E56723 /* Keyboards */,
 			);
 			path = CustomKeyboardTextField;
@@ -344,7 +344,7 @@
 			files = (
 				075E530A1D56188C00E56723 /* UIDatePickerKeyboard.swift in Sources */,
 				075E53091D56188C00E56723 /* ToolbarAccessoryView.swift in Sources */,
-				075E53081D56188C00E56723 /* CustomKeyboardViewProvider.swift in Sources */,
+				075E53081D56188C00E56723 /* CustomKeyboardProvider.swift in Sources */,
 				075E53071D56188C00E56723 /* CustomKeyboardTextField.swift in Sources */,
 				075E530B1D56188C00E56723 /* UIPickerViewKeyboard.swift in Sources */,
 			);
