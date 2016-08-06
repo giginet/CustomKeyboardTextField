@@ -98,6 +98,7 @@ public class UIDatePickerKeyboard<DataSource: UIDatePickerKeyboardDataSource>: U
     private func inputString() -> String {
         let formatter = NSDateFormatter()
         formatter.dateFormat = datePickerKeyboardDataSource.timeFormat
+        formatter.timeZone = datePickerKeyboardDataSource.timeZone
         return formatter.stringFromDate(date)
     }
 }
