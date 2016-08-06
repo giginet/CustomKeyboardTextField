@@ -1,6 +1,6 @@
 import UIKit
 
-public protocol DatePickerKeyboardDataSource {
+public protocol UIDatePickerKeyboardDataSource {
     init()
     var calendar: NSCalendar { get }
     var date: NSDate { get }
@@ -14,7 +14,7 @@ public protocol DatePickerKeyboardDataSource {
     var timeFormat: String { get }
 }
 
-public extension DatePickerKeyboardDataSource {
+public extension UIDatePickerKeyboardDataSource {
     var calendar: NSCalendar {
         return NSCalendar.currentCalendar()
     }
@@ -56,7 +56,7 @@ public extension DatePickerKeyboardDataSource {
     }
 }
 
-class DatePickerInputView<DataSource: DatePickerKeyboardDataSource>: UIDatePicker, CustomKeyboardView {
+class DatePickerInputView<DataSource: UIDatePickerKeyboardDataSource>: UIDatePicker, CustomKeyboardView {
     let datePickerKeyboardDataSource: DataSource
     weak var textField: UITextField? = nil
 
@@ -97,7 +97,7 @@ class DatePickerInputView<DataSource: DatePickerKeyboardDataSource>: UIDatePicke
     }
 }
 
-struct DatePickerKeyboardViewProvider<DataSource: DatePickerKeyboardDataSource>: CustomKeyboardViewProvider {
+struct UIDatePickerKeyboardViewProvider<DataSource: UIDatePickerKeyboardDataSource>: CustomKeyboardViewProvider {
     let dataSource: DataSource = DataSource()
     public weak var textField: UITextField!
     
@@ -118,7 +118,7 @@ struct DatePickerKeyboardViewProvider<DataSource: DatePickerKeyboardDataSource>:
     }
 }
 
-public class DatePickerKeyboardTextField<DataSource: DatePickerKeyboardDataSource>: CustomKeyboardTextField<DatePickerKeyboardViewProvider<DataSource>> {
+public class UIDatePickerKeyboardTextField<DataSource: UIDatePickerKeyboardDataSource>: CustomKeyboardTextField<UIDatePickerKeyboardViewProvider<DataSource>> {
     public required init() {
         super.init(frame: CGRect.zero)
     }

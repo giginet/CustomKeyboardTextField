@@ -1,29 +1,41 @@
 import UIKit
 import CustomKeyboardTextField
 
-struct SamplePickerKeyboardDataSource: PickerKeyboardDataSource {
-    let rowTitles = ["a", "b", "c"]
+struct SimplePickerKeyboardDataSource: UIPickerViewKeyboardDataSource {
+    let rowTitles = ["Bulbasaur", "Charmander", "Squirtle"]
 }
 
-typealias SamplePickerTextField = PickerKeyboardTextField<SamplePickerKeyboardDataSource>
+typealias SimplePickerTextField = PickerKeyboardTextField<SimplePickerKeyboardDataSource>
 
-struct SampleDatePickerKeyboardDataSource: DatePickerKeyboardDataSource { }
+struct DateTimePickerKeyboardDataSource: UIDatePickerKeyboardDataSource { }
 
-typealias SampleDatePickerTextField = DatePickerKeyboardTextField<SampleDatePickerKeyboardDataSource>
+typealias DateTimePickerTextField = UIDatePickerKeyboardTextField<DateTimePickerKeyboardDataSource>
+
+struct  DatePickerKeyboardDataSource: UIDatePickerKeyboardDataSource {
+    let datePickerMode: UIDatePickerMode = .Date
+    let timeFormat: String = "yyyy/MM/dd"
+}
+
+typealias DatePickerTextField = UIDatePickerKeyboardTextField<DatePickerKeyboardDataSource>
 
 class ViewController: UIViewController {
     override func awakeFromNib() {
         super.awakeFromNib()
     
-        let samplePickerTextField = SamplePickerTextField()
-        samplePickerTextField.backgroundColor = UIColor.whiteColor()
-        view.addSubview(samplePickerTextField)
-        samplePickerTextField.placeholder = "Picker"
+        let pickerTextField = SimplePickerTextField()
+        pickerTextField.backgroundColor = UIColor.whiteColor()
+        view.addSubview(pickerTextField)
+        pickerTextField.placeholder = "Picker"
         
-        let sampleDatePickerTextField = SampleDatePickerTextField()
-        sampleDatePickerTextField.backgroundColor = UIColor.whiteColor()
-        view.addSubview(sampleDatePickerTextField)
-        sampleDatePickerTextField.placeholder = "Date Picker"
+        let dateTimePickerTextField = DateTimePickerTextField()
+        dateTimePickerTextField.backgroundColor = UIColor.whiteColor()
+        view.addSubview(dateTimePickerTextField)
+        dateTimePickerTextField.placeholder = "Date Time Picker"
+        
+        let datePickerTextField = DatePickerTextField()
+        datePickerTextField.backgroundColor = UIColor.whiteColor()
+        view.addSubview(datePickerTextField)
+        datePickerTextField.placeholder = "Date Picker"
         
         let gamePadTextField = GamePadKeyboardTextField()
         gamePadTextField.backgroundColor = UIColor.whiteColor()
@@ -32,29 +44,32 @@ class ViewController: UIViewController {
         
         view.translatesAutoresizingMaskIntoConstraints = false
         
-        samplePickerTextField.translatesAutoresizingMaskIntoConstraints = false
-        view.addConstraints([
-            NSLayoutConstraint(item: samplePickerTextField, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .Height, multiplier: 1.0, constant: 32),
-            NSLayoutConstraint(item: samplePickerTextField, attribute: .Top, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1.0, constant: 40),
-            NSLayoutConstraint(item: samplePickerTextField, attribute: .LeadingMargin, relatedBy: .Equal, toItem: view, attribute: .LeadingMargin, multiplier: 1.0, constant: 8),
-            NSLayoutConstraint(item: samplePickerTextField, attribute: .TrailingMargin, relatedBy: .Equal, toItem: view, attribute: .TrailingMargin, multiplier: 1.0, constant: -8)
-        ])
+        let textFields = [
+            pickerTextField,
+            dateTimePickerTextField,
+            datePickerTextField,
+            gamePadTextField
+        ]
         
-        sampleDatePickerTextField.translatesAutoresizingMaskIntoConstraints = false
-        view.addConstraints([
-            NSLayoutConstraint(item: sampleDatePickerTextField, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .Height, multiplier: 1.0, constant: 32),
-            NSLayoutConstraint(item: sampleDatePickerTextField, attribute: .Top, relatedBy: .Equal, toItem: samplePickerTextField, attribute: .Bottom, multiplier: 1.0, constant: 20),
-            NSLayoutConstraint(item: sampleDatePickerTextField, attribute: .LeadingMargin, relatedBy: .Equal, toItem: view, attribute: .LeadingMargin, multiplier: 1.0, constant: 8),
-            NSLayoutConstraint(item: sampleDatePickerTextField, attribute: .TrailingMargin, relatedBy: .Equal, toItem: view, attribute: .TrailingMargin, multiplier: 1.0, constant: -8)
-        ])
-        
-        gamePadTextField.translatesAutoresizingMaskIntoConstraints = false
-        view.addConstraints([
-            NSLayoutConstraint(item: gamePadTextField, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .Height, multiplier: 1.0, constant: 32),
-            NSLayoutConstraint(item: gamePadTextField, attribute: .Top, relatedBy: .Equal, toItem: sampleDatePickerTextField, attribute: .Bottom, multiplier: 1.0, constant: 20),
-            NSLayoutConstraint(item: gamePadTextField, attribute: .LeadingMargin, relatedBy: .Equal, toItem: view, attribute: .LeadingMargin, multiplier: 1.0, constant: 8),
-            NSLayoutConstraint(item: gamePadTextField, attribute: .TrailingMargin, relatedBy: .Equal, toItem: view, attribute: .TrailingMargin, multiplier: 1.0, constant: -8)
-        ])
+        for (index, textField) in textFields.enumerate() {
+            textField.translatesAutoresizingMaskIntoConstraints = false
+            
+            let topConstraints: NSLayoutConstraint
+            if index == 0 {
+                topConstraints = NSLayoutConstraint(item: textField, attribute: .Top, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1.0, constant: 40)
+            } else {
+                let previousField = textFields[index - 1]
+                topConstraints = NSLayoutConstraint(item: textField, attribute: .Top, relatedBy: .Equal, toItem: previousField, attribute: .Top, multiplier: 1.0, constant: 40)
+            }
+            
+            pickerTextField.translatesAutoresizingMaskIntoConstraints = false
+            view.addConstraints([
+                NSLayoutConstraint(item: textField, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .Height, multiplier: 1.0, constant: 32),
+                topConstraints,
+                NSLayoutConstraint(item: textField, attribute: .LeadingMargin, relatedBy: .Equal, toItem: view, attribute: .LeadingMargin, multiplier: 1.0, constant: 8),
+                NSLayoutConstraint(item: textField, attribute: .TrailingMargin, relatedBy: .Equal, toItem: view, attribute: .TrailingMargin, multiplier: 1.0, constant: -8)
+            ])
+        }
     }
 }
 

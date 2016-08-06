@@ -1,11 +1,11 @@
 import UIKit
 
-public protocol PickerKeyboardDataSource {
+public protocol UIPickerViewKeyboardDataSource {
     init()
     var rowTitles: [String] { get }
 }
 
-class PickerInputView<DataSource: PickerKeyboardDataSource>: UIPickerView, UIPickerViewDelegate, CustomKeyboardView, UIPickerViewDataSource {
+class UIPickerViewKeyboard<DataSource: UIPickerViewKeyboardDataSource>: UIPickerView, UIPickerViewDelegate, CustomKeyboardView, UIPickerViewDataSource {
     let pickerKeyboardDataSource: DataSource
     weak var textField: UITextField? = nil
     
@@ -49,7 +49,7 @@ class PickerInputView<DataSource: PickerKeyboardDataSource>: UIPickerView, UIPic
     }
 }
 
-struct PickerKeyboardViewProvider<DataSource: PickerKeyboardDataSource>: CustomKeyboardViewProvider {
+struct PickerKeyboardViewProvider<DataSource: UIPickerViewKeyboardDataSource>: CustomKeyboardViewProvider {
     let dataSource: DataSource = DataSource()
     weak var textField: UITextField!
     
@@ -58,7 +58,7 @@ struct PickerKeyboardViewProvider<DataSource: PickerKeyboardDataSource>: CustomK
     }
     
     func inputView(with textField: UITextField) -> CustomKeyboardView? {
-        let picker = PickerInputView(with: textField, pickerKeyboardViewDataSource: dataSource)
+        let picker = UIPickerViewKeyboard(with: textField, pickerKeyboardViewDataSource: dataSource)
         picker.textField = textField
         return picker
     }
@@ -70,7 +70,7 @@ struct PickerKeyboardViewProvider<DataSource: PickerKeyboardDataSource>: CustomK
     }
 }
 
-public class PickerKeyboardTextField<DataSource: PickerKeyboardDataSource>: CustomKeyboardTextField<PickerKeyboardViewProvider<DataSource>> {
+public class PickerKeyboardTextField<DataSource: UIPickerViewKeyboardDataSource>: CustomKeyboardTextField<PickerKeyboardViewProvider<DataSource>> {
     public required init() {
         super.init(frame: CGRect.zero)
     }

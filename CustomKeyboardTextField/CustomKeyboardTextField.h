@@ -1,11 +1,3 @@
-//
-//  CustomKeyboardTextField.h
-//  CustomKeyboardTextField
-//
-//  Created by giginet on 8/5/16.
-//  Copyright © 2016 giginet. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 
 //! Project version number for CustomKeyboardTextField.
