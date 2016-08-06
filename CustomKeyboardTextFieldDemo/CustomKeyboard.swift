@@ -115,10 +115,6 @@ class GamePadKeyboardView: UIView, CustomKeyboardView {
             textField?.text = "\(text) \(insertText)"
         }
     }
-    
-    var currentText: String? {
-        return ""
-    }
 }
 
 struct GamePadKeyboardProvider: CustomKeyboardViewProvider {
@@ -138,7 +134,7 @@ struct GamePadKeyboardProvider: CustomKeyboardViewProvider {
     }
     
     func inputAccessoryView(with textField: UITextField) -> CustomKeyboardAccessoryView? {
-        let accessoryView = KeyboardAccessoryView(with: textField)
+        let accessoryView = ToolbarAccessoryView(with: textField)
         accessoryView.textField = textField
         return accessoryView
     }

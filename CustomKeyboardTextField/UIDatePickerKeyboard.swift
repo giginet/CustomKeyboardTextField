@@ -65,6 +65,7 @@ public class DatePickerInputView<DataSource: UIDatePickerKeyboardDataSource>: UI
     }
     
     required public init(with textField: UITextField, datePickerKeyboardViewDataSource: DataSource) {
+        self.textField = textField
         self.datePickerKeyboardDataSource = datePickerKeyboardViewDataSource
         
         super.init(frame: CGRect.zero)
@@ -86,14 +87,19 @@ public class DatePickerInputView<DataSource: UIDatePickerKeyboardDataSource>: UI
         textField?.text = inputString()
     }
     
-    public var currentText: String? {
-        return inputString()
-    }
-    
     private func inputString() -> String {
         let formatter = NSDateFormatter()
         formatter.dateFormat = datePickerKeyboardDataSource.timeFormat
         return formatter.stringFromDate(date)
+    }
+    
+    public func doneEditing() {
+        textField?.endEditing(true)
+    }
+    
+    public func cancelEditing() {
+        textField?.text = ""
+        textField?.endEditing(true)
     }
 }
 
@@ -107,13 +113,11 @@ struct UIDatePickerKeyboardViewProvider<DataSource: UIDatePickerKeyboardDataSour
     
     func inputView(with textField: UITextField) -> CustomKeyboardView? {
         let picker = DatePickerInputView(with: textField, datePickerKeyboardViewDataSource: dataSource)
-        picker.textField = textField
         return picker
     }
     
     func inputAccessoryView(with textField: UITextField) -> CustomKeyboardAccessoryView? {
-        let accessoryView = KeyboardAccessoryView(with: textField)
-        accessoryView.textField = textField
+        let accessoryView = ToolbarAccessoryView(with: textField)
         return accessoryView
     }
 }

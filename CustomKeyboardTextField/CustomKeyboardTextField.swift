@@ -33,12 +33,4 @@ public class CustomKeyboardTextField<KeyboardViewProvider: CustomKeyboardViewPro
         customKeyboardView = provider.inputView(with: self)
         customKeyboardAccessoryView = provider.inputAccessoryView(with: self)
     }
-    
-    // MARK - UITextFieldDelegate
-    
-    public func textFieldDidBeginEditing(textField: UITextField) {
-        if text == "" {
-            text = customKeyboardView?.currentText
-        }
-    }
 }

@@ -1,9 +1,20 @@
 import UIKit
 
-
 public protocol CustomKeyboardView {
     weak var textField: UITextField? { get }
-    var currentText: String? { get }
+    func doneEditing()
+    func cancelEditing()
+}
+
+public extension CustomKeyboardView {
+    func doneEditing() {
+        textField?.endEditing(true)
+    }
+    
+    func cancelEditing() {
+        textField?.text = ""
+        textField?.endEditing(true)
+    }
 }
 
 public protocol CustomKeyboardAccessoryView {

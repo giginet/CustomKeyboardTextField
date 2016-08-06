@@ -1,9 +1,10 @@
 import UIKit
 
-public class KeyboardAccessoryView: UIToolbar, CustomKeyboardAccessoryView {
+public class ToolbarAccessoryView: UIToolbar, CustomKeyboardAccessoryView {
     var toolbar = UIToolbar()
     let toolbarHeight: CGFloat = 44.0
     weak public var textField: UITextField? = nil
+    public var customKeyboardView: CustomKeyboardView?
     
     required public init(with textField: UITextField) {
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: toolbarHeight))
@@ -17,12 +18,11 @@ public class KeyboardAccessoryView: UIToolbar, CustomKeyboardAccessoryView {
     }
     
     func doneButtonDidTap(sender: UIBarButtonItem) {
-        textField?.endEditing(true)
+        customKeyboardView?.doneEditing()
     }
     
     func cancelButtonDidTap(sender: UIBarButtonItem) {
-        textField?.text = ""
-        textField?.endEditing(true)
+        customKeyboardView?.cancelEditing()
     }
     
     var barItems: [UIBarButtonItem] {
