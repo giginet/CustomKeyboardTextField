@@ -53,10 +53,10 @@ class GamePadKeyboardView: UIView {
     }
 }
 
-class GamePadKeyboardProvider: CustomKeyboardViewProvider {
+struct GamePadKeyboardProvider: CustomKeyboardViewProvider {
     weak var textField: UITextField!
     
-    required init(with textField: UITextField) {
+    init(with textField: UITextField) {
         self.textField = textField
     }
     

@@ -2,14 +2,7 @@ import UIKit
 
 public protocol PickerKeyboardDataSource {
     init()
-    var numberOfComponents: Int { get }
-    func rowTitles(by component: Int) -> [String]
-}
-
-public extension PickerKeyboardDataSource {
-    var numberOfComponents: Int {
-        return 1
-    }
+    var rowTitles: [String] { get }
 }
 
 class PickerInputView<DataSource: PickerKeyboardDataSource>: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
@@ -32,19 +25,19 @@ class PickerInputView<DataSource: PickerKeyboardDataSource>: UIPickerView, UIPic
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return pickerKeyboardDataSource.numberOfComponents
+        return 1
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerKeyboardDataSource.rowTitles(by: component).count
+        return pickerKeyboardDataSource.rowTitles.count
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerKeyboardDataSource.rowTitles(by: component)[row]
+        return pickerKeyboardDataSource.rowTitles[row]
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        textField?.text = pickerKeyboardDataSource.rowTitles(by: component)[row]
+        textField?.text = pickerKeyboardDataSource.rowTitles[row]
     }
 }
 

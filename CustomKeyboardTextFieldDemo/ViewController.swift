@@ -2,11 +2,7 @@ import UIKit
 import CustomKeyboardTextField
 
 struct SamplePickerKeyboardDataSource: PickerKeyboardDataSource {
-    let numberOfComponents = 1
-    
-    func rowTitles(by component: Int) -> [String] {
-        return ["a", "b", "c"]
-    }
+    let rowTitles = ["a", "b", "c"]
 }
 
 typealias SamplePickerTextField = PickerKeyboardTextField<SamplePickerKeyboardDataSource>
