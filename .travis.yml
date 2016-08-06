@@ -10,6 +10,7 @@ matrix:
       language: objective-c
       osx_image: xcode7.3
       script:
+        - pod spec lint
         - swiftlint
         - xcodebuild test -project CustomKeyboardTextField.xcodeproj -scheme CustomKeyboardTextFieldTests -destination 'platform=iOS Simulator,name=iPhone 6s' | xcpretty -c && exit ${PIPESTATUS[0]} 
       after_success:

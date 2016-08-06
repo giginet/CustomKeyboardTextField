@@ -9,7 +9,7 @@ CustomKeyboardTextField provides easy way to make TextField with custom keyboard
                    DESC
 
   s.homepage     = "https://github.com/giginet/CustomKeyboardTextField"
-  s.screenshots  = "raw.githubusercontent.com/giginet/CustomKeyboardTextField/master/Documentation/Image/demo.gif"
+  s.screenshots  = "https://raw.githubusercontent.com/giginet/CustomKeyboardTextField/master/Documentation/Image/demo.gif"
   s.license      = { :type => "MIT", :file => "LICENSE.md" }
 
   s.author             = { "giginet" => "giginet.net@gmail.com" }
