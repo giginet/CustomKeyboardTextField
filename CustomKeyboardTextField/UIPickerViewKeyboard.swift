@@ -24,13 +24,8 @@ public class UIPickerViewKeyboard<DataSource: UIPickerViewKeyboardDataSource>: U
         showsSelectionIndicator = true
     }
     
-    public func doneEditing() {
-        textField?.endEditing(true)
-    }
-    
-    public func cancelEditing() {
-        textField?.text = ""
-        textField?.endEditing(true)
+    public var currentText: String? {
+        return pickerView(self, titleForRow: selectedRowInComponent(0), forComponent: 0)
     }
     
     // MARK - UIPickerViewDataSource
@@ -64,11 +59,13 @@ struct PickerKeyboardViewProvider<DataSource: UIPickerViewKeyboardDataSource>: C
     
     func inputView(with textField: UITextField) -> CustomKeyboardView? {
         let picker = UIPickerViewKeyboard(with: textField, pickerKeyboardViewDataSource: dataSource)
+        picker.textField = textField
         return picker
     }
     
     func inputAccessoryView(with textField: UITextField) -> CustomKeyboardAccessoryView? {
-        let accessoryView = ToolbarAccessoryView(with: textField)
+        let accessoryView = KeyboardAccessoryView(with: textField)
+        accessoryView.textField = textField
         return accessoryView
     }
 }
