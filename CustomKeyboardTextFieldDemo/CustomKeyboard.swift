@@ -46,7 +46,7 @@ class PokemonPickerKeyboard: UIPickerViewKeyboard<PokemonPickerKeyboardDataSourc
     }
 }
 
-struct PokemonPickerKeyboardProvider: CustomKeyboardViewProvider {
+struct PokemonPickerKeyboardProvider: CustomKeyboardProvider {
     let dataSource = PokemonPickerKeyboardDataSource()
     weak var textField: UITextField!
 
@@ -123,7 +123,7 @@ class GamePadKeyboardView: UIView, CustomKeyboardView {
     }
 }
 
-struct GamePadKeyboardProvider: CustomKeyboardViewProvider {
+struct GamePadKeyboardProvider: CustomKeyboardProvider {
     weak var textField: UITextField!
 
     init(with textField: UITextField) {

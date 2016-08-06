@@ -103,7 +103,7 @@ public class UIDatePickerKeyboard<DataSource: UIDatePickerKeyboardDataSource>: U
     }
 }
 
-struct UIDatePickerKeyboardViewProvider<DataSource: UIDatePickerKeyboardDataSource>: CustomKeyboardViewProvider {
+struct UIDatePickerKeyboardViewProvider<DataSource: UIDatePickerKeyboardDataSource>: CustomKeyboardProvider {
     let dataSource: DataSource = DataSource()
     weak var textField: UITextField!
 

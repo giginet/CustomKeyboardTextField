@@ -16,7 +16,7 @@ public protocol CustomKeyboardAccessoryView {
     weak var textField: UITextField? { get }
 }
 
-public protocol CustomKeyboardViewProvider {
+public protocol CustomKeyboardProvider {
     weak var textField: UITextField! { get set }
     init(with textField: UITextField)
     func inputView(with textField: UITextField) -> CustomKeyboardView?

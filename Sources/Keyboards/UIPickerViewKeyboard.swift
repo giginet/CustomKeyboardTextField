@@ -53,7 +53,7 @@ public class UIPickerViewKeyboard<DataSource: UIPickerViewKeyboardDataSource>: U
     }
 }
 
-struct PickerKeyboardViewProvider<DataSource: UIPickerViewKeyboardDataSource>: CustomKeyboardViewProvider {
+struct PickerKeyboardViewProvider<DataSource: UIPickerViewKeyboardDataSource>: CustomKeyboardProvider {
     let dataSource: DataSource = DataSource()
     weak var textField: UITextField!
 
