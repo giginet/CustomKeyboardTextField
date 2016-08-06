@@ -2,7 +2,7 @@ import UIKit
 
 public class CustomKeyboardTextField<KeyboardViewProvider: CustomKeyboardProvider>: UITextField, UITextFieldDelegate {
     var provider: CustomKeyboardProvider {
-        return KeyboardViewProvider(with: self)
+        return KeyboardViewProvider()
     }
 
     private(set) var customKeyboardView: CustomKeyboardView? {

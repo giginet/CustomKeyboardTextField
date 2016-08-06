@@ -105,11 +105,8 @@ public class UIDatePickerKeyboard<DataSource: UIDatePickerKeyboardDataSource>: U
 
 struct UIDatePickerKeyboardViewProvider<DataSource: UIDatePickerKeyboardDataSource>: CustomKeyboardProvider {
     let dataSource: DataSource = DataSource()
-    weak var textField: UITextField!
-
-    init(with textField: UITextField) {
-        self.textField = textField
-    }
+    
+    init() { }
 
     func inputView(with textField: UITextField) -> CustomKeyboardView? {
         let picker = UIDatePickerKeyboard(with: textField, datePickerKeyboardViewDataSource: dataSource)

@@ -48,11 +48,8 @@ class PokemonPickerKeyboard: UIPickerViewKeyboard<PokemonPickerKeyboardDataSourc
 
 struct PokemonPickerKeyboardProvider: CustomKeyboardProvider {
     let dataSource = PokemonPickerKeyboardDataSource()
-    weak var textField: UITextField!
 
-    init(with textField: UITextField) {
-        self.textField = textField
-    }
+    init() { }
 
     func inputView(with textField: UITextField) -> CustomKeyboardView? {
         let picker = PokemonPickerKeyboard(with: textField, pickerKeyboardViewDataSource: dataSource)
@@ -126,9 +123,7 @@ class GamePadKeyboardView: UIView, CustomKeyboardView {
 struct GamePadKeyboardProvider: CustomKeyboardProvider {
     weak var textField: UITextField!
 
-    init(with textField: UITextField) {
-        self.textField = textField
-    }
+    init() { }
 
     func inputView(with textField: UITextField) -> CustomKeyboardView? {
         let gamePadNib = UINib(nibName: "GamePadKeyboardView", bundle: nil)

@@ -55,12 +55,9 @@ public class UIPickerViewKeyboard<DataSource: UIPickerViewKeyboardDataSource>: U
 
 struct PickerKeyboardViewProvider<DataSource: UIPickerViewKeyboardDataSource>: CustomKeyboardProvider {
     let dataSource: DataSource = DataSource()
-    weak var textField: UITextField!
-
-    init(with textField: UITextField) {
-        self.textField = textField
-    }
-
+    
+    init() { }
+    
     func inputView(with textField: UITextField) -> CustomKeyboardView? {
         let picker = UIPickerViewKeyboard(with: textField, pickerKeyboardViewDataSource: dataSource)
         return picker
