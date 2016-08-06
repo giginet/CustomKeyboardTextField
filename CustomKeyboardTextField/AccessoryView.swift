@@ -1,18 +1,18 @@
 import UIKit
 
-class KeyboardAccessoryView: UIToolbar, CustomKeyboardAccessoryView {
+public class KeyboardAccessoryView: UIToolbar, CustomKeyboardAccessoryView {
     var toolbar = UIToolbar()
     let toolbarHeight: CGFloat = 44.0
-    weak var textField: UITextField? = nil
+    weak public var textField: UITextField? = nil
     
-    required init(with textField: UITextField) {
+    required public init(with textField: UITextField) {
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: toolbarHeight))
         self.textField = textField
         
         setItems(barItems, animated: true)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     

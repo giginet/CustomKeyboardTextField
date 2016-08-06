@@ -23,35 +23,34 @@ class ViewController: UIViewController {
         super.awakeFromNib()
     
         let pickerTextField = SimplePickerTextField()
-        pickerTextField.backgroundColor = UIColor.whiteColor()
-        view.addSubview(pickerTextField)
         pickerTextField.placeholder = "Picker"
         
+        let pokemonPickerTextField = PokemonPickerKeyboardTextField()
+        pokemonPickerTextField.placeholder = "Rich Picker"
+        
         let dateTimePickerTextField = DateTimePickerTextField()
-        dateTimePickerTextField.backgroundColor = UIColor.whiteColor()
-        view.addSubview(dateTimePickerTextField)
         dateTimePickerTextField.placeholder = "Date Time Picker"
         
         let datePickerTextField = DatePickerTextField()
-        datePickerTextField.backgroundColor = UIColor.whiteColor()
-        view.addSubview(datePickerTextField)
         datePickerTextField.placeholder = "Date Picker"
         
         let gamePadTextField = GamePadKeyboardTextField()
-        gamePadTextField.backgroundColor = UIColor.whiteColor()
-        view.addSubview(gamePadTextField)
         gamePadTextField.placeholder = "Game Pad"
         
         view.translatesAutoresizingMaskIntoConstraints = false
         
         let textFields = [
             pickerTextField,
+            pokemonPickerTextField,
             dateTimePickerTextField,
             datePickerTextField,
             gamePadTextField
         ]
         
         for (index, textField) in textFields.enumerate() {
+            textField.backgroundColor = UIColor.whiteColor()
+            view.addSubview(textField)
+            
             textField.translatesAutoresizingMaskIntoConstraints = false
             
             let topConstraints: NSLayoutConstraint

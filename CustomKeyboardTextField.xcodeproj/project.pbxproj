@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		073F47561D55FC6F00865351 /* Bulbasaur.png in Resources */ = {isa = PBXBuildFile; fileRef = 073F47531D55FC6F00865351 /* Bulbasaur.png */; };
+		073F47571D55FC6F00865351 /* Charmander.png in Resources */ = {isa = PBXBuildFile; fileRef = 073F47541D55FC6F00865351 /* Charmander.png */; };
+		073F47581D55FC6F00865351 /* Squirtle.png in Resources */ = {isa = PBXBuildFile; fileRef = 073F47551D55FC6F00865351 /* Squirtle.png */; };
 		07BA1CBB1D55BF8A00BB2E85 /* CustomKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA1CBA1D55BF8A00BB2E85 /* CustomKeyboard.swift */; };
 		07BA1CBD1D55BFAA00BB2E85 /* GamePadKeyboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07BA1CBC1D55BFAA00BB2E85 /* GamePadKeyboardView.xib */; };
 		07C541FB1D54DD880069498C /* CustomKeyboardTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 07C541FA1D54DD880069498C /* CustomKeyboardTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -36,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		073F47531D55FC6F00865351 /* Bulbasaur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bulbasaur.png; sourceTree = "<group>"; };
+		073F47541D55FC6F00865351 /* Charmander.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Charmander.png; sourceTree = "<group>"; };
+		073F47551D55FC6F00865351 /* Squirtle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Squirtle.png; sourceTree = "<group>"; };
 		07BA1CBA1D55BF8A00BB2E85 /* CustomKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomKeyboard.swift; sourceTree = "<group>"; };
 		07BA1CBC1D55BFAA00BB2E85 /* GamePadKeyboardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GamePadKeyboardView.xib; sourceTree = "<group>"; };
 		07C541F71D54DD880069498C /* CustomKeyboardTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CustomKeyboardTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +91,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		073F47521D55FC6F00865351 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				073F47531D55FC6F00865351 /* Bulbasaur.png */,
+				073F47541D55FC6F00865351 /* Charmander.png */,
+				073F47551D55FC6F00865351 /* Squirtle.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		07C541ED1D54DD880069498C = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +155,7 @@
 		07C5E9AA1D54E2790042C657 /* CustomKeyboardTextFieldDemo */ = {
 			isa = PBXGroup;
 			children = (
+				073F47521D55FC6F00865351 /* Images */,
 				07C5E9AB1D54E2790042C657 /* AppDelegate.swift */,
 				07C5E9AC1D54E2790042C657 /* Assets.xcassets */,
 				07C5E9AD1D54E2790042C657 /* LaunchScreen.storyboard */,
@@ -279,6 +296,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				07C5E9B61D54E2790042C657 /* Main.storyboard in Resources */,
+				073F47581D55FC6F00865351 /* Squirtle.png in Resources */,
+				073F47561D55FC6F00865351 /* Bulbasaur.png in Resources */,
+				073F47571D55FC6F00865351 /* Charmander.png in Resources */,
 				07C5E9B41D54E2790042C657 /* Assets.xcassets in Resources */,
 				07C5E9B51D54E2790042C657 /* LaunchScreen.storyboard in Resources */,
 				07BA1CBD1D55BFAA00BB2E85 /* GamePadKeyboardView.xib in Resources */,
