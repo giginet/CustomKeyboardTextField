@@ -12,11 +12,11 @@ matrix:
       script:
         - pod spec lint
         - swiftlint
-        - xcodebuild test -project CustomKeyboardTextField.xcodeproj -scheme CustomKeyboardTextFieldTests -destination 'platform=iOS Simulator,name=iPhone 6s' | xcpretty -c && exit ${PIPESTATUS[0]} 
+        - set -o pipefail && xcodebuild test -project CustomKeyboardTextField.xcodeproj -scheme CustomKeyboardTextFieldTests -destination 'platform=iOS Simulator,name=iPhone 6s' | xcpretty -c
       after_success:
         - bash <(curl -s https://codecov.io/bash) -J 'CustomKeyboardTextField' 
     - os: osx
       language: objective-c
       osx_image: xcode7.3
       script: 
-        - xcodebuild build -project CustomKeyboardTextField.xcodeproj -scheme CustomKeyboardTextFieldDemo -destination 'platform=iOS Simulator,name=iPhone 6s' | xcpretty -c && exit ${PIPESTATUS[0]} 
+        - set -o pipefail && xcodebuild build -project CustomKeyboardTextField.xcodeproj -scheme CustomKeyboardTextFieldDemo -destination 'platform=iOS Simulator,name=iPhone 6s' | xcpretty -c
