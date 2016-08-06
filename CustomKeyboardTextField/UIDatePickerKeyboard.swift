@@ -84,11 +84,15 @@ public class DatePickerInputView<DataSource: UIDatePickerKeyboardDataSource>: UI
     }
     
     func dateIsChanged(sender: UIDatePicker) {
-        textField?.text = inputString()
+        updateTextField()
     }
     
     public var currentText: String? {
         return inputString()
+    }
+    
+    public func updateTextField() {
+        textField?.text = currentText
     }
     
     private func inputString() -> String {

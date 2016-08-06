@@ -37,8 +37,6 @@ public class CustomKeyboardTextField<KeyboardViewProvider: CustomKeyboardViewPro
     // MARK - UITextFieldDelegate
     
     public func textFieldDidBeginEditing(textField: UITextField) {
-        if text == "" {
-            text = customKeyboardView?.currentText
-        }
+        customKeyboardView?.updateTextField()
     }
 }

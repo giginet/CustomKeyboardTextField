@@ -34,12 +34,15 @@ class PokemonPickerKeyboard: UIPickerViewKeyboard<PokemonPickerKeyboardDataSourc
         return UIImageView(image: image)
     }
     
-    // MARK - UIPickerViewDelegate
-    
-    override func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    private func updateTextField(for row: Int) {
         textField?.text = pickerKeyboardDataSource.rowTitles[row]
         textField?.leftViewMode = .Always
         textField?.leftView = iconView(row)
+    }
+    
+    override func updateTextField() {
+        let selectedRow = selectedRowInComponent(0)
+        updateTextField(for: selectedRow)
     }
 }
 
@@ -57,7 +60,8 @@ struct PokemonPickerKeyboardProvider: CustomKeyboardViewProvider {
     }
     
     func inputAccessoryView(with textField: UITextField) -> CustomKeyboardAccessoryView? {
-        return nil
+        let accessoryView = ToolbarKeyboardAccessoryView(with: textField)
+        return accessoryView
     }
 }
 
@@ -116,9 +120,7 @@ class GamePadKeyboardView: UIView, CustomKeyboardView {
         }
     }
     
-    var currentText: String? {
-        return ""
-    }
+    let currentText: String? = nil
 }
 
 struct GamePadKeyboardProvider: CustomKeyboardViewProvider {
@@ -138,8 +140,7 @@ struct GamePadKeyboardProvider: CustomKeyboardViewProvider {
     }
     
     func inputAccessoryView(with textField: UITextField) -> CustomKeyboardAccessoryView? {
-        let accessoryView = ToolbarKeyboardAccessoryView(with: textField)
-        return accessoryView
+        return nil
     }
 }
 

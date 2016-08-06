@@ -28,6 +28,10 @@ public class UIPickerViewKeyboard<DataSource: UIPickerViewKeyboardDataSource>: U
         return pickerView(self, titleForRow: selectedRowInComponent(0), forComponent: 0)
     }
     
+    public func updateTextField() {
+        textField?.text = currentText
+    }
+    
     // MARK - UIPickerViewDataSource
     
     public func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -45,7 +49,7 @@ public class UIPickerViewKeyboard<DataSource: UIPickerViewKeyboardDataSource>: U
     }
     
     public func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        textField?.text = pickerKeyboardDataSource.rowTitles[row]
+        updateTextField()
     }
 }
 

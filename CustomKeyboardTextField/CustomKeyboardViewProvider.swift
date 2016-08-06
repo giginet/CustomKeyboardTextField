@@ -1,9 +1,15 @@
 import UIKit
 
-
 public protocol CustomKeyboardView {
     weak var textField: UITextField? { get }
     var currentText: String? { get }
+    func updateTextField()
+}
+
+public extension CustomKeyboardView {
+    func updateTextField() {
+        textField?.text = currentText
+    }
 }
 
 public protocol CustomKeyboardAccessoryView {
