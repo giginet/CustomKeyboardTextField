@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07BA1CBB1D55BF8A00BB2E85 /* CustomKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BA1CBA1D55BF8A00BB2E85 /* CustomKeyboard.swift */; };
+		07BA1CBD1D55BFAA00BB2E85 /* GamePadKeyboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07BA1CBC1D55BFAA00BB2E85 /* GamePadKeyboardView.xib */; };
 		07C541FB1D54DD880069498C /* CustomKeyboardTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 07C541FA1D54DD880069498C /* CustomKeyboardTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07C542021D54DD880069498C /* CustomKeyboardTextField.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07C541F71D54DD880069498C /* CustomKeyboardTextField.framework */; };
 		07C542071D54DD890069498C /* CustomKeyboardTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C542061D54DD890069498C /* CustomKeyboardTextFieldTests.swift */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07BA1CBA1D55BF8A00BB2E85 /* CustomKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomKeyboard.swift; sourceTree = "<group>"; };
+		07BA1CBC1D55BFAA00BB2E85 /* GamePadKeyboardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GamePadKeyboardView.xib; sourceTree = "<group>"; };
 		07C541F71D54DD880069498C /* CustomKeyboardTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CustomKeyboardTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07C541FA1D54DD880069498C /* CustomKeyboardTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomKeyboardTextField.h; sourceTree = "<group>"; };
 		07C541FC1D54DD880069498C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -141,6 +145,8 @@
 				07C5E9AF1D54E2790042C657 /* Main.storyboard */,
 				07C5E9B11D54E2790042C657 /* Info.plist */,
 				07C5E9B21D54E2790042C657 /* ViewController.swift */,
+				07BA1CBA1D55BF8A00BB2E85 /* CustomKeyboard.swift */,
+				07BA1CBC1D55BFAA00BB2E85 /* GamePadKeyboardView.xib */,
 			);
 			path = CustomKeyboardTextFieldDemo;
 			sourceTree = SOURCE_ROOT;
@@ -275,6 +281,7 @@
 				07C5E9B61D54E2790042C657 /* Main.storyboard in Resources */,
 				07C5E9B41D54E2790042C657 /* Assets.xcassets in Resources */,
 				07C5E9B51D54E2790042C657 /* LaunchScreen.storyboard in Resources */,
+				07BA1CBD1D55BFAA00BB2E85 /* GamePadKeyboardView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07BA1CBB1D55BF8A00BB2E85 /* CustomKeyboard.swift in Sources */,
 				07C5E9B81D54E2790042C657 /* ViewController.swift in Sources */,
 				07C5E9B31D54E2790042C657 /* AppDelegate.swift in Sources */,
 			);

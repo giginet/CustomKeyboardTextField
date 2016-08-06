@@ -29,6 +29,10 @@ class ViewController: UIViewController {
         view.addSubview(sampleDatePickerTextField)
         sampleDatePickerTextField.placeholder = "Date Picker"
         
+        let gamePadTextField = GamePadKeyboardTextField()
+        gamePadTextField.backgroundColor = UIColor.whiteColor()
+        view.addSubview(gamePadTextField)
+        gamePadTextField.placeholder = "Game Pad"
         
         view.translatesAutoresizingMaskIntoConstraints = false
         
@@ -46,6 +50,14 @@ class ViewController: UIViewController {
             NSLayoutConstraint(item: sampleDatePickerTextField, attribute: .Top, relatedBy: .Equal, toItem: samplePickerTextField, attribute: .Bottom, multiplier: 1.0, constant: 20),
             NSLayoutConstraint(item: sampleDatePickerTextField, attribute: .LeadingMargin, relatedBy: .Equal, toItem: view, attribute: .LeadingMargin, multiplier: 1.0, constant: 8),
             NSLayoutConstraint(item: sampleDatePickerTextField, attribute: .TrailingMargin, relatedBy: .Equal, toItem: view, attribute: .TrailingMargin, multiplier: 1.0, constant: -8)
+        ])
+        
+        gamePadTextField.translatesAutoresizingMaskIntoConstraints = false
+        view.addConstraints([
+            NSLayoutConstraint(item: gamePadTextField, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .Height, multiplier: 1.0, constant: 32),
+            NSLayoutConstraint(item: gamePadTextField, attribute: .Top, relatedBy: .Equal, toItem: sampleDatePickerTextField, attribute: .Bottom, multiplier: 1.0, constant: 20),
+            NSLayoutConstraint(item: gamePadTextField, attribute: .LeadingMargin, relatedBy: .Equal, toItem: view, attribute: .LeadingMargin, multiplier: 1.0, constant: 8),
+            NSLayoutConstraint(item: gamePadTextField, attribute: .TrailingMargin, relatedBy: .Equal, toItem: view, attribute: .TrailingMargin, multiplier: 1.0, constant: -8)
         ])
     }
 }

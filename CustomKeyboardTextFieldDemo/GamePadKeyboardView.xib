@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Zwd-rp-TDw" customClass="GamePadKeyboardView" customModule="CustomKeyboardTextFieldDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNQ-8c-29q">
+                    <rect key="frame" x="265" y="42" width="30" height="30"/>
+                    <state key="normal" title="A"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tgs-zl-AR8">
+                    <rect key="frame" x="185" y="42" width="34" height="30"/>
+                    <state key="normal" title="Start"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gjj-OV-ntR">
+                    <rect key="frame" x="133" y="42" width="44" height="30"/>
+                    <state key="normal" title="Select"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQY-RM-SAd">
+                    <rect key="frame" x="56" y="8" width="30" height="30"/>
+                    <state key="normal" title="Up"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nRz-9X-lFs">
+                    <rect key="frame" x="52" y="62" width="39" height="30"/>
+                    <state key="normal" title="Down"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drj-cb-KLd">
+                    <rect key="frame" x="25" y="35" width="30" height="30"/>
+                    <state key="normal" title="Left"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eaj-tt-Lnz">
+                    <rect key="frame" x="89" y="35" width="36" height="30"/>
+                    <state key="normal" title="Right"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGN-2N-IGw">
+                    <rect key="frame" x="227" y="42" width="30" height="30"/>
+                    <state key="normal" title="B"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="aButton" destination="GNQ-8c-29q" id="2ze-Jh-FiR"/>
+                <outlet property="bButton" destination="GGN-2N-IGw" id="fXf-jn-ngc"/>
+                <outlet property="downButton" destination="nRz-9X-lFs" id="dza-4p-U4X"/>
+                <outlet property="leftButton" destination="drj-cb-KLd" id="r3X-a3-af9"/>
+                <outlet property="rightButton" destination="eaj-tt-Lnz" id="est-7I-rDi"/>
+                <outlet property="selectButton" destination="Gjj-OV-ntR" id="sDS-YM-h2F"/>
+                <outlet property="startButton" destination="Tgs-zl-AR8" id="ecB-xc-1o3"/>
+                <outlet property="upButton" destination="EQY-RM-SAd" id="Rg1-g6-Wsx"/>
+            </connections>
+            <point key="canvasLocation" x="762" y="303"/>
+        </view>
+    </objects>
+</document>
