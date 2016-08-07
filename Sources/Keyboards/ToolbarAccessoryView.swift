@@ -21,7 +21,7 @@ public class ToolbarKeyboardAccessoryView: UIToolbar, CustomKeyboardAccessoryVie
     }
 
     func cancelButtonDidTap(sender: UIBarButtonItem) {
-        textField?.text = ""
+        textField?.editingDidCancel()
         textField?.endEditing(true)
     }
 

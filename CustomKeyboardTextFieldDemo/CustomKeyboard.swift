@@ -53,11 +53,6 @@ struct PokemonPickerKeyboardProvider: CustomKeyboardProvider {
         let picker = PokemonPickerKeyboard(with: textField, pickerKeyboardViewDataSource: dataSource)
         return picker
     }
-
-    func inputAccessoryView(with textField: UITextField) -> CustomKeyboardAccessoryView? {
-        let accessoryView = ToolbarKeyboardAccessoryView(with: textField)
-        return accessoryView
-    }
 }
 
 typealias PokemonPickerKeyboardTextField = CustomKeyboardTextField<PokemonPickerKeyboardProvider>
@@ -116,6 +111,10 @@ class GamePadKeyboardView: UIView, CustomKeyboardView {
         }
         updateTextField()
     }
+    
+    func reset() {
+        inputText = nil
+    }
 }
 
 struct GamePadKeyboardProvider: CustomKeyboardProvider {
@@ -127,10 +126,6 @@ struct GamePadKeyboardProvider: CustomKeyboardProvider {
             gamePad.textField = textField
             return gamePad
         }
-        return nil
-    }
-
-    func inputAccessoryView(with textField: UITextField) -> CustomKeyboardAccessoryView? {
         return nil
     }
 }

@@ -1,19 +1,26 @@
 import UIKit
 
-public protocol CustomKeyboardView {
+public protocol CustomKeyboardView: class {
     weak var textField: UITextField? { get }
     var inputText: String? { get }
     func updateTextField()
+    func reset()
 }
 
 public extension CustomKeyboardView {
+    var inputText: String? {
+        return nil
+    }
+
     func updateTextField() {
         textField?.text = inputText
     }
+    
+    func reset() {
+    }
 }
 
-public protocol CustomKeyboardAccessoryView {
-    weak var textField: UITextField? { get }
+public protocol CustomKeyboardAccessoryView: CustomKeyboardView {
 }
 
 public protocol CustomKeyboardProvider {
@@ -25,5 +32,9 @@ public protocol CustomKeyboardProvider {
 public extension CustomKeyboardProvider {
     init() {
         self.init()
+    }
+    
+    func inputAccessoryView(with textField: UITextField) -> CustomKeyboardAccessoryView? {
+        return ToolbarKeyboardAccessoryView(with: textField)
     }
 }

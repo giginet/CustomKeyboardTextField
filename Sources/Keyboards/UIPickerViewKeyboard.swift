@@ -32,6 +32,10 @@ public class UIPickerViewKeyboard<DataSource: UIPickerViewKeyboardDataSource>: U
         textField?.text = inputText
     }
 
+    public func reset() {
+        selectRow(-1, inComponent: 0, animated: false)
+    }
+
     // MARK - UIPickerViewDataSource
 
     public func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {

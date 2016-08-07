@@ -97,6 +97,10 @@ public class UIDatePickerKeyboard<DataSource: UIDatePickerKeyboardDataSource>: U
     public func updateTextField() {
         textField?.text = inputText
     }
+    
+    public func reset() {
+        date = datePickerKeyboardDataSource.date
+    }
 }
 
 struct UIDatePickerKeyboardViewProvider<DataSource: UIDatePickerKeyboardDataSource>: CustomKeyboardProvider {
