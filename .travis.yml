@@ -1,24 +1,26 @@
 env:
   global:
-    - LC_CTYPE=en_US.UTF-8
+  - LC_CTYPE=en_US.UTF-8
+  - secure: yKRlKg8ya0pvWnYZ516Tq91Jv6/hALM8ItX9Pf6jjmx+H96/MJlaw+xZHUllfzcYyNLOpUGs7eHXwNuZ2YQ+UKcgXwo6YXbIsS27i83zsiMVKeinRx4B0xfU9pqWmz3YOEHUSRtXErvSQn7iiErIqLKvE+C0m9KYKFOeOsJ5FRdts7ZDesEUmyBRnsR85GjZABbwLRbvpYX9ZevPG/dC3TxeK833uTZkRQV9KxINnzLBu8HXoj4WNfwoibqrWPqLYTt4SWyBZ+0AabfUOSId6W4cW9NVhshJA12LWFD7oj7K8onox4IHfZaYToJeafGKKfZDRl8e1g/wP7mSf7uQ+IMoNAUBnO6UY/jTrprfGOiOWoGM7lhuS+ZfPrWUtmUBbT0rc45YibDcXCcGFOcQrcIz7ZK+7OYmkyKUQfCBnqBtpuJ4lIiJd6P/VsrTbvtVeprZKPXNaIqQty7zezcqSRjRqLSLIsP8CQ4LYJkIAxYQ9JVTvyeimT2LBzkv9Nbdxf3ZbskcnsKkSyUyCSQWgcsvX6wKKpF1o1REodDzHn3eHjQ/kYCL3RK/VkL1WJeba6SRKXN+M5MXuJs6AIyJXkLOdPpQp/nLGRfhbKiIjZtN0fzSp6tsVQGC1DeWOiXuS0dXQjV6+wAVZPvFcLxtR4kN0u2ZI0K5k3kp1gspdwc=
+  - secure: Xuh1dMd/vkDkech5sjM184te8VVRsQZod/JfoC567vqya5ELHoYE37sOCXkOTjGIrywYF+/E2RIfMRy50L1QgW69k52Ubvqa1XBGykilVLNC4ik9+9zjHL3xNM7LfZk5mtGtBeSjBrBfbD2UAKl8cPm3rIN9Zhi/G4K7vyeZdh0sqJRsvPgO1ovU41HeXPAjhheQJEszE5c+mGmD+6lBJOL+2ZYAyZKDpgKnPqNiCwioA1Ct7b9mfuArpB24TVwpJNAIvNXc7xUC9/aApWxTQ68jBOnR86QPsNZ574XWGe9Rvm9lP4M2JirRwuzUQgVPTVN9IVMwGk8t6wWwFF4TW3t4ntX485TlwgxfakaPb6Gr1RhBF8g+yOumIqRKCsYtSFcYePwR/BseeaeRVfIDgAsoBkw5i9GKPCe6gYKt/ETFckCoKguABYodqvbs/wNeM+FCb5jiOwkvgPTIBE8u3o5fgOfHuEgVfLIw6Toh3uS1svjTyLjtkz0unfUEibMmkz0DDgzkRpVaD0wyMRpxO05XiEv2VqAZlo7avVmPlSzT3jD39cVlkOSM9oBlhxM99wHaQO7pDxtK8UZ+zS13priGSLObDCP1l5wfKwSHPplLppbaOFR5fxbuPNOl+wbJgA6pgmd/RIRA9DBKYd556hNFCurmU+R0/usgFFowb8A=
 before_install:
-  - brew update
-  - brew install swiftlint
+- brew update
+- brew install swiftlint
 matrix:
   include:
-    - os: osx
-      language: objective-c
-      osx_image: xcode7.3
-      script:
-        - pod spec lint
-        - swiftlint
-        - set -o pipefail && xcodebuild test -project CustomKeyboardTextField.xcodeproj -scheme CustomKeyboardTextFieldTests -destination 'platform=iOS Simulator,name=iPhone 6s' | xcpretty -c
-        - set -o pipefail && xcodebuild build -project CustomKeyboardTextField.xcodeproj -scheme CustomKeyboardTextFieldDemo -destination 'platform=iOS Simulator,name=iPhone 6s' | xcpretty -c
-      after_success:
-        - bash <(curl -s https://codecov.io/bash) -J 'CustomKeyboardTextField' 
-    - os: osx
-      language: objective-c
-      osx_image: xcode8
-      script: 
-        - set -o pipefail && xcodebuild test -project CustomKeyboardTextField.xcodeproj -scheme CustomKeyboardTextFieldTests -destination 'platform=iOS Simulator,name=iPhone 6s' | xcpretty -c
-        - set -o pipefail && xcodebuild build -project CustomKeyboardTextField.xcodeproj -scheme CustomKeyboardTextFieldDemo -destination 'platform=iOS Simulator,name=iPhone 6s' | xcpretty -c
+  - os: osx
+    language: objective-c
+    osx_image: xcode7.3
+    script:
+    - pod spec lint
+    - swiftlint
+    - set -o pipefail && xcodebuild test -project CustomKeyboardTextField.xcodeproj -scheme CustomKeyboardTextFieldTests -destination 'platform=iOS Simulator,name=iPhone 6s' | xcpretty -c
+    - fastlane deploy_to_appetize
+    after_success:
+    - bash <(curl -s https://codecov.io/bash) -J 'CustomKeyboardTextField'
+  - os: osx
+    language: objective-c
+    osx_image: xcode8
+    script:
+    - set -o pipefail && xcodebuild test -project CustomKeyboardTextField.xcodeproj -scheme CustomKeyboardTextFieldTests -destination 'platform=iOS Simulator,name=iPhone 6s' | xcpretty -c 
+    - set -o pipefail && xcodebuild build -project CustomKeyboardTextField.xcodeproj -scheme CustomKeyboardTextFieldDemo -destination 'platform=iOS Simulator,name=iPhone 6s' | xcpretty -c
