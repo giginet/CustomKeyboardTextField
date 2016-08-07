@@ -2,7 +2,7 @@ import XCTest
 @testable import CustomKeyboardTextField
 
 struct PokemonPickerKeyboardDataSource: UIPickerViewKeyboardDataSource {
-    let rowTitles = ["Bulbasaur", "Charmander", "Squirtle"]
+    let elements = ["Bulbasaur", "Charmander", "Squirtle"]
 }
 
 typealias SimplePickerTextField = PickerKeyboardTextField<PokemonPickerKeyboardDataSource>

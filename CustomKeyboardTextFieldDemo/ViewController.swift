@@ -2,7 +2,7 @@ import UIKit
 import CustomKeyboardTextField
 
 struct SimplePickerKeyboardDataSource: UIPickerViewKeyboardDataSource {
-    let rowTitles = ["Bulbasaur", "Charmander", "Squirtle"]
+    let elements = ["Bulbasaur", "Charmander", "Squirtle"]
 }
 
 typealias SimplePickerTextField = PickerKeyboardTextField<SimplePickerKeyboardDataSource>

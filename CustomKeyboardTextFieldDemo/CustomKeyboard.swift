@@ -4,7 +4,7 @@ import CustomKeyboardTextField
 // MARK - Pokemon PickerView Keyboard
 
 struct PokemonPickerKeyboardDataSource: UIPickerViewKeyboardDataSource {
-    let rowTitles = ["Bulbasaur", "Charmander", "Squirtle"]
+    let elements = ["Bulbasaur", "Charmander", "Squirtle"]
 }
 
 class PokemonPickerKeyboard: UIPickerViewKeyboard<PokemonPickerKeyboardDataSource> {
@@ -35,7 +35,7 @@ class PokemonPickerKeyboard: UIPickerViewKeyboard<PokemonPickerKeyboardDataSourc
     }
 
     private func updateTextField(for row: Int) {
-        textField?.text = pickerKeyboardDataSource.rowTitles[row]
+        textField?.text = pickerKeyboardDataSource.elements[row]
         textField?.leftViewMode = .Always
         textField?.leftView = iconView(row)
     }
@@ -48,8 +48,6 @@ class PokemonPickerKeyboard: UIPickerViewKeyboard<PokemonPickerKeyboardDataSourc
 
 struct PokemonPickerKeyboardProvider: CustomKeyboardProvider {
     let dataSource = PokemonPickerKeyboardDataSource()
-
-    init() { }
 
     func inputView(with textField: UITextField) -> CustomKeyboardView? {
         let picker = PokemonPickerKeyboard(with: textField, pickerKeyboardViewDataSource: dataSource)
@@ -122,8 +120,6 @@ class GamePadKeyboardView: UIView, CustomKeyboardView {
 
 struct GamePadKeyboardProvider: CustomKeyboardProvider {
     weak var textField: UITextField!
-
-    init() { }
 
     func inputView(with textField: UITextField) -> CustomKeyboardView? {
         let gamePadNib = UINib(nibName: "GamePadKeyboardView", bundle: nil)

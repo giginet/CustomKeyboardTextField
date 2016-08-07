@@ -21,3 +21,9 @@ public protocol CustomKeyboardProvider {
     func inputView(with textField: UITextField) -> CustomKeyboardView?
     func inputAccessoryView(with textField: UITextField) -> CustomKeyboardAccessoryView?
 }
+
+public extension CustomKeyboardProvider {
+    init() {
+        self.init()
+    }
+}
