@@ -4,7 +4,7 @@ import CustomKeyboardTextField
 // MARK - Pokemon PickerView Keyboard
 
 struct PokemonPickerKeyboardDataSource: UIPickerViewKeyboardDataSource {
-    let rowTitles = ["Bulbasaur", "Charmander", "Squirtle"]
+    let elements = ["Bulbasaur", "Charmander", "Squirtle"]
 }
 
 class PokemonPickerKeyboard: UIPickerViewKeyboard<PokemonPickerKeyboardDataSource> {
@@ -35,7 +35,7 @@ class PokemonPickerKeyboard: UIPickerViewKeyboard<PokemonPickerKeyboardDataSourc
     }
 
     private func updateTextField(for row: Int) {
-        textField?.text = pickerKeyboardDataSource.rowTitles[row]
+        textField?.text = pickerKeyboardDataSource.elements[row]
         textField?.leftViewMode = .Always
         textField?.leftView = iconView(row)
     }
@@ -49,16 +49,9 @@ class PokemonPickerKeyboard: UIPickerViewKeyboard<PokemonPickerKeyboardDataSourc
 struct PokemonPickerKeyboardProvider: CustomKeyboardProvider {
     let dataSource = PokemonPickerKeyboardDataSource()
 
-    init() { }
-
     func inputView(with textField: UITextField) -> CustomKeyboardView? {
         let picker = PokemonPickerKeyboard(with: textField, pickerKeyboardViewDataSource: dataSource)
         return picker
-    }
-
-    func inputAccessoryView(with textField: UITextField) -> CustomKeyboardAccessoryView? {
-        let accessoryView = ToolbarKeyboardAccessoryView(with: textField)
-        return accessoryView
     }
 }
 
@@ -68,7 +61,7 @@ typealias PokemonPickerKeyboardTextField = CustomKeyboardTextField<PokemonPicker
 
 class GamePadKeyboardView: UIView, CustomKeyboardView {
     weak var textField: UITextField?
-    var currentText: String? = ""
+    var inputText: String? = ""
 
     @IBOutlet weak var aButton: UIButton!
     @IBOutlet weak var bButton: UIButton!
@@ -114,16 +107,18 @@ class GamePadKeyboardView: UIView, CustomKeyboardView {
 
     private func insertText(insertText: String) {
         if let text = textField?.text {
-            currentText = "\(text) \(insertText)"
+            inputText = "\(text) \(insertText)"
         }
         updateTextField()
+    }
+
+    func reset() {
+        inputText = nil
     }
 }
 
 struct GamePadKeyboardProvider: CustomKeyboardProvider {
     weak var textField: UITextField!
-
-    init() { }
 
     func inputView(with textField: UITextField) -> CustomKeyboardView? {
         let gamePadNib = UINib(nibName: "GamePadKeyboardView", bundle: nil)
@@ -131,10 +126,6 @@ struct GamePadKeyboardProvider: CustomKeyboardProvider {
             gamePad.textField = textField
             return gamePad
         }
-        return nil
-    }
-
-    func inputAccessoryView(with textField: UITextField) -> CustomKeyboardAccessoryView? {
         return nil
     }
 }

@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/giginet/CustomKeyboardTextField.svg?branch=master)](https://travis-ci.org/giginet/CustomKeyboardTextField) 
 [![codecov](https://codecov.io/gh/giginet/CustomKeyboardTextField/branch/master/graph/badge.svg)](https://codecov.io/gh/giginet/CustomKeyboardTextField)
-[![Language](https://img.shields.io/badge/language-Swift%202.2-orange.svg)](https://swift.org)
+[![Language](https://img.shields.io/badge/language-Swift%202.2%7C2.3-orange.svg)](https://swift.org)
 [![Platform](https://img.shields.io/cocoapods/p/CustomKeyboardTextField.svg?style=flat)](http://cocoadocs.org/docsets/CustomKeyboardTextField)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/CustomKeyboardTextField.svg)](https://img.shields.io/cocoapods/v/CustomKeyboardTextField.svg)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
@@ -11,6 +11,8 @@
 ![](https://raw.githubusercontent.com/giginet/CustomKeyboardTextField/master/Documentation/Image/demo.gif)
 
 CustomKeyboardTextField provides easy way to make TextField with custom keyboards.
+
+This library is under unstable. So interfaces might be changed.
 
 # Demo
 
@@ -26,7 +28,7 @@ CustomKeyboardTextField provides easy way to make TextField with custom keyboard
 import CustomKeyboardTextField
 
 struct SimplePickerKeyboardDataSource: UIPickerViewKeyboardDataSource {
-    let rowTitles = ["Bulbasaur", "Charmander", "Squirtle"]
+    let elements = ["Bulbasaur", "Charmander", "Squirtle"]
 }
 
 typealias SimplePickerTextField = PickerKeyboardTextField<SimplePickerKeyboardDataSource>
@@ -34,6 +36,8 @@ typealias SimplePickerTextField = PickerKeyboardTextField<SimplePickerKeyboardDa
 let pickerTextField = SimplePickerTextField()
 addSubView(pickerTextField)
 ```
+
+If you'd like to change input text, override `inputText(for row: Int)`.
 
 You can also implement rich picker views. See [sample implementation](https://github.com/giginet/CustomKeyboardTextField/blob/master/CustomKeyboardTextFieldDemo/CustomKeyboard.swift#L10) for detail.
 
@@ -49,7 +53,6 @@ struct  DatePickerKeyboardDataSource: UIDatePickerKeyboardDataSource {
     let datePickerMode: UIDatePickerMode = .Date
     let timeFormat: String = "yyyy/MM/dd"
 }
-
 typealias DatePickerTextField = UIDatePickerKeyboardTextField<DatePickerKeyboardDataSource>
 ```
 
@@ -67,12 +70,18 @@ You can implement own custom keyboard easily.
 // Your custom view
 class MyCustomKeyboardView: UIView, CustomKeyboardView {
     weak var textField: UITextField?
-    var currentText: String = "Current text"
+
+    // current input text
+    var inputText: String = "input text"
+    
+    // do something when keyboards are restored to default (optional)
+    func reset() {
+    }
 }
 ```
 
 You can put some controls on your keyboard (button, switch, text fields etc...).
-When these are interacted, you execute `updateTextField()` then `currentText` is reflected in the text field. 
+When these are interacted, you execute `updateTextField()` then `inputText` is reflected in the text field. 
 
 ### 2. Define `CustomKeyboardProvider`
 
@@ -92,9 +101,10 @@ struct MyKeyboardProvider: CustomKeyboardProvider {
     }
 
     func inputAccessoryView(with textField: UITextField) -> CustomKeyboardAccessoryView? {
-        // Return accessoryView or nil
+        // Return CustomKeyboardAccessoryView or nil
         // ToolbarKeyboardAccessoryView is built-in
         // Of cource, you can implement your own toolbars
+        // CustomKeyboardAccessoryView has same interface with CustomKeyboardView
         let accessoryView = ToolbarKeyboardAccessoryView(with: textField)
         return accessoryView
     }
@@ -106,8 +116,6 @@ struct MyKeyboardProvider: CustomKeyboardProvider {
 ```swift
 typealias MyKeyboardTextField = CustomKeyboardTextField<MyKeyboardProvider>
 ```
-
-
 
 See [sample implementation](https://github.com/giginet/CustomKeyboardTextField/blob/master/CustomKeyboardTextFieldDemo/CustomKeyboard.swift#L69) for detail.
 
@@ -131,7 +139,7 @@ pod "CustomKeyboardTextField"
 # Requirements
 
 - iOS 8 or above
-- Swift 2.2
+- Swift 2.2, 2.3
 
 # Author
 

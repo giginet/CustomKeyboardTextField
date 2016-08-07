@@ -2,7 +2,14 @@ import UIKit
 
 public protocol UIPickerViewKeyboardDataSource {
     init()
-    var rowTitles: [String] { get }
+    var elements: [String] { get }
+    func inputText(for row: Int) -> String?
+}
+
+public extension UIPickerViewKeyboardDataSource {
+    func inputText(for row: Int) -> String? {
+        return elements[row]
+    }
 }
 
 public class UIPickerViewKeyboard<DataSource: UIPickerViewKeyboardDataSource>: UIPickerView, UIPickerViewDelegate, CustomKeyboardView, UIPickerViewDataSource {
@@ -24,12 +31,17 @@ public class UIPickerViewKeyboard<DataSource: UIPickerViewKeyboardDataSource>: U
         showsSelectionIndicator = true
     }
 
-    public var currentText: String? {
-        return pickerView(self, titleForRow: selectedRowInComponent(0), forComponent: 0)
+    public var inputText: String? {
+        let row = selectedRowInComponent(0)
+        return pickerKeyboardDataSource.inputText(for: row)
     }
 
     public func updateTextField() {
-        textField?.text = currentText
+        textField?.text = inputText
+    }
+
+    public func reset() {
+        selectRow(-1, inComponent: 0, animated: false)
     }
 
     // MARK - UIPickerViewDataSource
@@ -39,13 +51,13 @@ public class UIPickerViewKeyboard<DataSource: UIPickerViewKeyboardDataSource>: U
     }
 
     public func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerKeyboardDataSource.rowTitles.count
+        return pickerKeyboardDataSource.elements.count
     }
 
     // MARK - UIPickerViewDelegate
 
     public func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerKeyboardDataSource.rowTitles[row]
+        return pickerKeyboardDataSource.elements[row]
     }
 
     public func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -55,8 +67,6 @@ public class UIPickerViewKeyboard<DataSource: UIPickerViewKeyboardDataSource>: U
 
 struct PickerKeyboardViewProvider<DataSource: UIPickerViewKeyboardDataSource>: CustomKeyboardProvider {
     let dataSource: DataSource = DataSource()
-
-    init() { }
 
     func inputView(with textField: UITextField) -> CustomKeyboardView? {
         let picker = UIPickerViewKeyboard(with: textField, pickerKeyboardViewDataSource: dataSource)

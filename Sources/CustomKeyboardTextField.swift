@@ -1,5 +1,18 @@
 import UIKit
 
+protocol CustomKeyboardTextFieldType: class {
+    func editingDidCancel()
+}
+
+extension UITextField: CustomKeyboardTextFieldType {
+    func editingDidCancel() {
+        text = nil
+        attributedText = nil
+        leftView = nil
+        rightView = nil
+    }
+}
+
 public class CustomKeyboardTextField<KeyboardViewProvider: CustomKeyboardProvider>: UITextField, UITextFieldDelegate {
     var provider: CustomKeyboardProvider {
         return KeyboardViewProvider()
@@ -32,6 +45,13 @@ public class CustomKeyboardTextField<KeyboardViewProvider: CustomKeyboardProvide
     private func setupCustomKeyboard() {
         customKeyboardView = provider.inputView(with: self)
         customKeyboardAccessoryView = provider.inputAccessoryView(with: self)
+    }
+
+    override func editingDidCancel() {
+        super.editingDidCancel()
+
+        customKeyboardView?.reset()
+        customKeyboardAccessoryView?.reset()
     }
 
     // MARK - UITextFieldDelegate
