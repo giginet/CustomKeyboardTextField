@@ -12,7 +12,7 @@
 
 CustomKeyboardTextField provides easy way to make TextField with custom keyboards.
 
-This library is under unstable. So interfaces may be changed.
+This library is under unstable. So interfaces might be changed.
 
 # Demo
 
