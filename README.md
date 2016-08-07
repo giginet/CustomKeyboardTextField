@@ -12,6 +12,8 @@
 
 CustomKeyboardTextField provides easy way to make TextField with custom keyboards.
 
+This library is under unstable. So interfaces may be changed.
+
 # Demo
 
 [Demo application](https://appetize.io/app/jv8ddk9ff2uwnf7hr508kbrkwg?device=iphone5s&scale=100&orientation=portrait&osVersion=9.3) is available on Appetize.io.
@@ -26,7 +28,7 @@ CustomKeyboardTextField provides easy way to make TextField with custom keyboard
 import CustomKeyboardTextField
 
 struct SimplePickerKeyboardDataSource: UIPickerViewKeyboardDataSource {
-    let rowTitles = ["Bulbasaur", "Charmander", "Squirtle"]
+    let elements = ["Bulbasaur", "Charmander", "Squirtle"]
 }
 
 typealias SimplePickerTextField = PickerKeyboardTextField<SimplePickerKeyboardDataSource>
@@ -67,12 +69,18 @@ You can implement own custom keyboard easily.
 // Your custom view
 class MyCustomKeyboardView: UIView, CustomKeyboardView {
     weak var textField: UITextField?
-    var currentText: String = "Current text"
+
+    // current input text
+    var inputText: String = "input text"
+    
+    // do something when keyboards are restored to default (optional)
+    func reset() {
+    }
 }
 ```
 
 You can put some controls on your keyboard (button, switch, text fields etc...).
-When these are interacted, you execute `updateTextField()` then `currentText` is reflected in the text field. 
+When these are interacted, you execute `updateTextField()` then `inputText` is reflected in the text field. 
 
 ### 2. Define `CustomKeyboardProvider`
 
@@ -92,9 +100,10 @@ struct MyKeyboardProvider: CustomKeyboardProvider {
     }
 
     func inputAccessoryView(with textField: UITextField) -> CustomKeyboardAccessoryView? {
-        // Return accessoryView or nil
+        // Return CustomKeyboardAccessoryView or nil
         // ToolbarKeyboardAccessoryView is built-in
         // Of cource, you can implement your own toolbars
+        // CustomKeyboardAccessoryView has same interface with CustomKeyboardView
         let accessoryView = ToolbarKeyboardAccessoryView(with: textField)
         return accessoryView
     }
@@ -106,8 +115,6 @@ struct MyKeyboardProvider: CustomKeyboardProvider {
 ```swift
 typealias MyKeyboardTextField = CustomKeyboardTextField<MyKeyboardProvider>
 ```
-
-
 
 See [sample implementation](https://github.com/giginet/CustomKeyboardTextField/blob/master/CustomKeyboardTextFieldDemo/CustomKeyboard.swift#L69) for detail.
 
