@@ -1,0 +1,34 @@
+fastlane_version "1.99.0"
+
+default_platform :ios
+
+platform :ios do
+  project_name = 'CustomKeyboardTextField'
+  scheme_name = 'CustomKeyboardTextFieldDemo'
+
+  desc "Deploy demo application to Appetize.io"
+  lane :deploy_to_appetize do
+    base_build_dir = File.expand_path('build')
+
+    xcodebuild(project: "#{project_name}.xcodeproj",
+               scheme: scheme_name,
+               build: true,
+               xcargs: "CONFIGURATION_BUILD_DIR=#{base_build_dir}",
+               sdk: 'iphonesimulator')
+
+    app_path = File.join(base_build_dir, "#{scheme_name}.app")
+    zip_path = File.join(base_build_dir, "#{scheme_name}.app.zip")
+    zip(path: app_path, 
+        output_path: zip_path)
+
+    note = last_git_commit[:message]
+    appetize(path: zip_path, note: note)
+  end
+end
+
+
+# More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Platforms.md
+# All available actions: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Actions.md
+
+# fastlane reports which actions are used
+# No personal data is recorded. Learn more at https://github.com/fastlane/enhancer
