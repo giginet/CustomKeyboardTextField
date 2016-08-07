@@ -111,7 +111,7 @@ class GamePadKeyboardView: UIView, CustomKeyboardView {
         }
         updateTextField()
     }
-    
+
     func reset() {
         inputText = nil
     }

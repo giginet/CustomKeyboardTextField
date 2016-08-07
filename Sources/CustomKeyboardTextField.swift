@@ -46,10 +46,10 @@ public class CustomKeyboardTextField<KeyboardViewProvider: CustomKeyboardProvide
         customKeyboardView = provider.inputView(with: self)
         customKeyboardAccessoryView = provider.inputAccessoryView(with: self)
     }
-    
+
     override func editingDidCancel() {
         super.editingDidCancel()
-        
+
         customKeyboardView?.reset()
         customKeyboardAccessoryView?.reset()
     }

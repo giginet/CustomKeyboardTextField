@@ -15,7 +15,7 @@ public extension CustomKeyboardView {
     func updateTextField() {
         textField?.text = inputText
     }
-    
+
     func reset() {
     }
 }
@@ -33,7 +33,7 @@ public extension CustomKeyboardProvider {
     init() {
         self.init()
     }
-    
+
     func inputAccessoryView(with textField: UITextField) -> CustomKeyboardAccessoryView? {
         return ToolbarKeyboardAccessoryView(with: textField)
     }
