@@ -1,11 +1,10 @@
 Pod::Spec.new do |s|
   s.name         = "CustomKeyboardTextField"
-  s.version      = "0.1"
-  s.summary      = "Provides easy way to make TextField with custom keyboards."
+  s.version      = "0.2"
+  s.summary      = "Provides easy way to make type safety TextField with custom keyboards."
 
   s.description  = <<-DESC
-CustomKeyboardTextField provides easy way to make TextField with custom keyboards.
- type-safed with Swift feature.
+CustomKeyboardTextField provides easy way to make type safety TextField with custom keyboards.
                    DESC
 
   s.homepage     = "https://github.com/giginet/CustomKeyboardTextField"
