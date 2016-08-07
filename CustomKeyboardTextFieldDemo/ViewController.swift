@@ -9,7 +9,7 @@ typealias SimplePickerTextField = PickerKeyboardTextField<SimplePickerKeyboardDa
 
 struct GenderPickerKeyboardDataSource: UIPickerViewKeyboardDataSource {
     let elements = ["Unknown", "Female", "Male"]
-    
+
     func inputText(for row: Int) -> String? {
         if row == 0 {
             return nil
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
 
         let pickerTextField = SimplePickerTextField()
         pickerTextField.placeholder = "Picker"
-        
+
         let genderPickerTextField = GenderPickerTextField()
         genderPickerTextField.placeholder = "Gender"
 
