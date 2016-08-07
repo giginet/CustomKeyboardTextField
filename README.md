@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/giginet/CustomKeyboardTextField.svg?branch=master)](https://travis-ci.org/giginet/CustomKeyboardTextField) 
 [![codecov](https://codecov.io/gh/giginet/CustomKeyboardTextField/branch/master/graph/badge.svg)](https://codecov.io/gh/giginet/CustomKeyboardTextField)
-[![Language](https://img.shields.io/badge/language-Swift%202.2-orange.svg)](https://swift.org)
+[![Language](https://img.shields.io/badge/language-Swift%202.2%7C2.3-orange.svg)](https://swift.org)
 [![Platform](https://img.shields.io/cocoapods/p/CustomKeyboardTextField.svg?style=flat)](http://cocoadocs.org/docsets/CustomKeyboardTextField)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/CustomKeyboardTextField.svg)](https://img.shields.io/cocoapods/v/CustomKeyboardTextField.svg)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
@@ -51,7 +51,6 @@ struct  DatePickerKeyboardDataSource: UIDatePickerKeyboardDataSource {
     let datePickerMode: UIDatePickerMode = .Date
     let timeFormat: String = "yyyy/MM/dd"
 }
-
 typealias DatePickerTextField = UIDatePickerKeyboardTextField<DatePickerKeyboardDataSource>
 ```
 
@@ -138,7 +137,7 @@ pod "CustomKeyboardTextField"
 # Requirements
 
 - iOS 8 or above
-- Swift 2.2
+- Swift 2.2, 2.3
 
 # Author
 
