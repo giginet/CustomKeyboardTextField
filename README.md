@@ -37,6 +37,8 @@ let pickerTextField = SimplePickerTextField()
 addSubView(pickerTextField)
 ```
 
+If you'd like to change input text, override `inputText(for row: Int)`.
+
 You can also implement rich picker views. See [sample implementation](https://github.com/giginet/CustomKeyboardTextField/blob/master/CustomKeyboardTextFieldDemo/CustomKeyboard.swift#L10) for detail.
 
 ## Date Picker

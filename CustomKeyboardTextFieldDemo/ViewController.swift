@@ -7,6 +7,19 @@ struct SimplePickerKeyboardDataSource: UIPickerViewKeyboardDataSource {
 
 typealias SimplePickerTextField = PickerKeyboardTextField<SimplePickerKeyboardDataSource>
 
+struct GenderPickerKeyboardDataSource: UIPickerViewKeyboardDataSource {
+    let elements = ["Unknown", "Female", "Male"]
+    
+    func inputText(for row: Int) -> String? {
+        if row == 0 {
+            return nil
+        }
+        return elements[row]
+    }
+}
+
+typealias GenderPickerTextField = PickerKeyboardTextField<GenderPickerKeyboardDataSource>
+
 struct DateTimePickerKeyboardDataSource: UIDatePickerKeyboardDataSource { }
 
 typealias DateTimePickerTextField = UIDatePickerKeyboardTextField<DateTimePickerKeyboardDataSource>
@@ -24,6 +37,9 @@ class ViewController: UIViewController {
 
         let pickerTextField = SimplePickerTextField()
         pickerTextField.placeholder = "Picker"
+        
+        let genderPickerTextField = GenderPickerTextField()
+        genderPickerTextField.placeholder = "Gender"
 
         let pokemonPickerTextField = PokemonPickerKeyboardTextField()
         pokemonPickerTextField.placeholder = "Rich Picker"
@@ -41,6 +57,7 @@ class ViewController: UIViewController {
 
         let textFields = [
             pickerTextField,
+            genderPickerTextField,
             pokemonPickerTextField,
             dateTimePickerTextField,
             datePickerTextField,

@@ -3,6 +3,13 @@ import UIKit
 public protocol UIPickerViewKeyboardDataSource {
     init()
     var elements: [String] { get }
+    func inputText(for row: Int) -> String?
+}
+
+public extension UIPickerViewKeyboardDataSource {
+    func inputText(for row: Int) -> String? {
+        return elements[row]
+    }
 }
 
 public class UIPickerViewKeyboard<DataSource: UIPickerViewKeyboardDataSource>: UIPickerView, UIPickerViewDelegate, CustomKeyboardView, UIPickerViewDataSource {
@@ -25,7 +32,8 @@ public class UIPickerViewKeyboard<DataSource: UIPickerViewKeyboardDataSource>: U
     }
 
     public var inputText: String? {
-        return pickerView(self, titleForRow: selectedRowInComponent(0), forComponent: 0)
+        let row = selectedRowInComponent(0)
+        return pickerKeyboardDataSource.inputText(for: row)
     }
 
     public func updateTextField() {
