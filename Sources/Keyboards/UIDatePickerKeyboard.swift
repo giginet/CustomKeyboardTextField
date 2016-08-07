@@ -87,19 +87,15 @@ public class UIDatePickerKeyboard<DataSource: UIDatePickerKeyboardDataSource>: U
         updateTextField()
     }
 
-    public var currentText: String? {
-        return inputString()
-    }
-
-    public func updateTextField() {
-        textField?.text = currentText
-    }
-
-    private func inputString() -> String {
+    public var inputText: String? {
         let formatter = NSDateFormatter()
         formatter.dateFormat = datePickerKeyboardDataSource.timeFormat
         formatter.timeZone = datePickerKeyboardDataSource.timeZone
         return formatter.stringFromDate(date)
+    }
+
+    public func updateTextField() {
+        textField?.text = inputText
     }
 }
 

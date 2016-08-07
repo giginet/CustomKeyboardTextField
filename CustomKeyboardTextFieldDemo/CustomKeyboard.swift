@@ -66,7 +66,7 @@ typealias PokemonPickerKeyboardTextField = CustomKeyboardTextField<PokemonPicker
 
 class GamePadKeyboardView: UIView, CustomKeyboardView {
     weak var textField: UITextField?
-    var currentText: String? = ""
+    var inputText: String? = ""
 
     @IBOutlet weak var aButton: UIButton!
     @IBOutlet weak var bButton: UIButton!
@@ -112,7 +112,7 @@ class GamePadKeyboardView: UIView, CustomKeyboardView {
 
     private func insertText(insertText: String) {
         if let text = textField?.text {
-            currentText = "\(text) \(insertText)"
+            inputText = "\(text) \(insertText)"
         }
         updateTextField()
     }

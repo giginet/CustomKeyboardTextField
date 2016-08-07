@@ -24,12 +24,12 @@ public class UIPickerViewKeyboard<DataSource: UIPickerViewKeyboardDataSource>: U
         showsSelectionIndicator = true
     }
 
-    public var currentText: String? {
+    public var inputText: String? {
         return pickerView(self, titleForRow: selectedRowInComponent(0), forComponent: 0)
     }
 
     public func updateTextField() {
-        textField?.text = currentText
+        textField?.text = inputText
     }
 
     // MARK - UIPickerViewDataSource
