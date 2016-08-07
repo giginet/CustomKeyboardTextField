@@ -12,7 +12,6 @@ platform :ios do
 
     xcodebuild(project: "#{project_name}.xcodeproj",
                scheme: scheme_name,
-               build: true,
                xcargs: "CONFIGURATION_BUILD_DIR=#{base_build_dir}",
                sdk: 'iphonesimulator')
 
@@ -25,10 +24,3 @@ platform :ios do
     appetize(path: zip_path, note: note)
   end
 end
-
-
-# More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Platforms.md
-# All available actions: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Actions.md
-
-# fastlane reports which actions are used
-# No personal data is recorded. Learn more at https://github.com/fastlane/enhancer
