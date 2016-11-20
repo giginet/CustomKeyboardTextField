@@ -2,24 +2,24 @@ import XCTest
 @testable import CustomKeyboardTextField
 
 private struct DateTimePickerKeyboardDataSource: UIDatePickerKeyboardDataSource {
-    let timeZone: NSTimeZone = NSTimeZone(abbreviation: "JST")!
+    let timeZone: TimeZone = TimeZone(abbreviation: "JST")!
 }
 
 private typealias DateTimePickerTextField = UIDatePickerKeyboardTextField<DateTimePickerKeyboardDataSource>
 
 private struct  DatePickerKeyboardDataSource: UIDatePickerKeyboardDataSource {
-    let datePickerMode: UIDatePickerMode = .Date
+    let datePickerMode: UIDatePickerMode = .date
     let timeFormat: String = "yyyy/MM/dd"
-    let timeZone: NSTimeZone = NSTimeZone(abbreviation: "JST")!
+    let timeZone: TimeZone = TimeZone(abbreviation: "JST")!
 }
 
 private typealias DatePickerTextField = UIDatePickerKeyboardTextField<DatePickerKeyboardDataSource>
 
 class UIDatePickerKeyboardTests: XCTestCase {
-    var targetDate: NSDate {
-        let formatter = NSDateFormatter()
+    var targetDate: Date {
+        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd HH:mm:ss Z"
-        return formatter.dateFromString("2016/08/06 12:25:30 +0900")!
+        return formatter.date(from: "2016/08/06 12:25:30 +0900")!
     }
 
     func testAccessoryView() {

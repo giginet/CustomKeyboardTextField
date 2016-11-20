@@ -13,18 +13,18 @@ extension UITextField: CustomKeyboardTextFieldType {
     }
 }
 
-public class CustomKeyboardTextField<KeyboardViewProvider: CustomKeyboardProvider>: UITextField, UITextFieldDelegate {
+open class CustomKeyboardTextField<KeyboardViewProvider: CustomKeyboardProvider>: UITextField, UITextFieldDelegate {
     var provider: CustomKeyboardProvider {
         return KeyboardViewProvider()
     }
 
-    private(set) var customKeyboardView: CustomKeyboardView? {
+    fileprivate(set) var customKeyboardView: CustomKeyboardView? {
         didSet {
             inputView = customKeyboardView as? UIView
         }
     }
 
-    private(set) var customKeyboardAccessoryView: CustomKeyboardAccessoryView? {
+    fileprivate(set) var customKeyboardAccessoryView: CustomKeyboardAccessoryView? {
         didSet {
             inputAccessoryView = customKeyboardAccessoryView as? UIView
         }
@@ -42,7 +42,11 @@ public class CustomKeyboardTextField<KeyboardViewProvider: CustomKeyboardProvide
         setupCustomKeyboard()
     }
 
-    private func setupCustomKeyboard() {
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    fileprivate func setupCustomKeyboard() {
         customKeyboardView = provider.inputView(with: self)
         customKeyboardAccessoryView = provider.inputAccessoryView(with: self)
     }
@@ -56,7 +60,7 @@ public class CustomKeyboardTextField<KeyboardViewProvider: CustomKeyboardProvide
 
     // MARK - UITextFieldDelegate
 
-    public func textFieldDidBeginEditing(textField: UITextField) {
+    open func textFieldDidBeginEditing(_ textField: UITextField) {
         customKeyboardView?.updateTextField()
     }
 }
