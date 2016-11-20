@@ -25,7 +25,7 @@ struct DateTimePickerKeyboardDataSource: UIDatePickerKeyboardDataSource { }
 typealias DateTimePickerTextField = UIDatePickerKeyboardTextField<DateTimePickerKeyboardDataSource>
 
 struct  DatePickerKeyboardDataSource: UIDatePickerKeyboardDataSource {
-    let datePickerMode: UIDatePickerMode = .Date
+    let datePickerMode: UIDatePickerMode = .date
     let timeFormat: String = "yyyy/MM/dd"
 }
 

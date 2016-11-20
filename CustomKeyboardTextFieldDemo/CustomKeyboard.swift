@@ -14,7 +14,7 @@ class PokemonPickerKeyboard: UIPickerViewKeyboard<PokemonPickerKeyboardDataSourc
         super.init(with: textField, pickerKeyboardViewDataSource: pickerKeyboardViewDataSource)
     }
 
-    func pickerView(picker: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
+    func pickerView(_ picker: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
         if let view = view {
             return view
         }
@@ -24,17 +24,17 @@ class PokemonPickerKeyboard: UIPickerViewKeyboard<PokemonPickerKeyboardDataSourc
         return view
     }
 
-    func pickerView(pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         return rowHeight
     }
 
-    private func iconView(row: Int) -> UIImageView {
+    fileprivate func iconView(_ row: Int) -> UIImageView {
         let pokemonName = pickerView(self, titleForRow: row, forComponent: 0)!
         let image = UIImage(named: "\(pokemonName).png")
         return UIImageView(image: image)
     }
 
-    private func updateTextField(for row: Int) {
+    fileprivate func updateTextField(for row: Int) {
         textField?.text = pickerKeyboardDataSource.elements[row]
         textField?.leftViewMode = .Always
         textField?.leftView = iconView(row)
@@ -91,7 +91,7 @@ class GamePadKeyboardView: UIView, CustomKeyboardView {
         }
     }
 
-    func buttonDidTap(sender: UIButton) {
+    func buttonDidTap(_ sender: UIButton) {
         switch sender {
         case aButton: insertText("A")
         case bButton: insertText("B")
@@ -105,7 +105,7 @@ class GamePadKeyboardView: UIView, CustomKeyboardView {
         }
     }
 
-    private func insertText(insertText: String) {
+    fileprivate func insertText(_ insertText: String) {
         if let text = textField?.text {
             inputText = "\(text) \(insertText)"
         }
