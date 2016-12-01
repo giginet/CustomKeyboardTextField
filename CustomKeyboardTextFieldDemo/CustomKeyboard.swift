@@ -87,7 +87,7 @@ class GamePadKeyboardView: UIView, CustomKeyboardView {
         ]
 
         for button in buttons {
-            button.addTarget(self, action: #selector(buttonDidTap(_:)), forControlEvents: .TouchUpInside)
+            button?.addTarget(self, action: #selector(buttonDidTap(_:)), for: .touchUpInside)
         }
     }
 
@@ -122,7 +122,7 @@ struct GamePadKeyboardProvider: CustomKeyboardProvider {
 
     func inputView(with textField: UITextField) -> CustomKeyboardView? {
         let gamePadNib = UINib(nibName: "GamePadKeyboardView", bundle: nil)
-        if let gamePad = gamePadNib.instantiateWithOwner(nil, options: nil).first as? GamePadKeyboardView {
+        if let gamePad = gamePadNib.instantiate(withOwner: nil, options: nil).first as? GamePadKeyboardView {
             gamePad.textField = textField
             return gamePad
         }
