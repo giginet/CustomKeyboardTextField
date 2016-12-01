@@ -40,9 +40,8 @@ class PokemonPickerKeyboard: UIPickerViewKeyboard<PokemonPickerKeyboardDataSourc
         textField?.leftView = iconView(row)
     }
 
-    override func updateTextField() {
-        let selectedRow = selectedRowInComponent(0)
-        updateTextField(for: selectedRow)
+    override func updateTextField() {        
+        updateTextField(for: selectedRow(inComponent: 0))
     }
 }
 
