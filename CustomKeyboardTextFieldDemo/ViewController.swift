@@ -64,8 +64,8 @@ class ViewController: UIViewController {
             gamePadTextField
         ]
 
-        for (index, textField) in textFields.enumerate() {
-            textField.backgroundColor = UIColor.whiteColor()
+        for (index, textField) in textFields.enumerated() {
+            textField.backgroundColor = UIColor.white
             view.addSubview(textField)
 
             textField.translatesAutoresizingMaskIntoConstraints = false
