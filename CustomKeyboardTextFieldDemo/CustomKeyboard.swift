@@ -13,6 +13,10 @@ class PokemonPickerKeyboard: UIPickerViewKeyboard<PokemonPickerKeyboardDataSourc
     required init(with textField: UITextField, pickerKeyboardViewDataSource: PokemonPickerKeyboardDataSource) {
         super.init(with: textField, pickerKeyboardViewDataSource: pickerKeyboardViewDataSource)
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     func pickerView(_ picker: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
         if let view = view {
