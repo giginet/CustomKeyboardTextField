@@ -72,18 +72,18 @@ class ViewController: UIViewController {
 
             let topConstraints: NSLayoutConstraint
             if index == 0 {
-                topConstraints = NSLayoutConstraint(item: textField, attribute: .Top, relatedBy: .Equal, toItem: view, attribute: .Top, multiplier: 1.0, constant: 40)
+                topConstraints = NSLayoutConstraint(item: textField, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: 40)
             } else {
                 let previousField = textFields[index - 1]
-                topConstraints = NSLayoutConstraint(item: textField, attribute: .Top, relatedBy: .Equal, toItem: previousField, attribute: .Top, multiplier: 1.0, constant: 40)
+                topConstraints = NSLayoutConstraint(item: textField, attribute: .top, relatedBy: .equal, toItem: previousField, attribute: .top, multiplier: 1.0, constant: 40)
             }
 
             pickerTextField.translatesAutoresizingMaskIntoConstraints = false
             view.addConstraints([
-                NSLayoutConstraint(item: textField, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .Height, multiplier: 1.0, constant: 32),
+                NSLayoutConstraint(item: textField, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1.0, constant: 32),
                 topConstraints,
-                NSLayoutConstraint(item: textField, attribute: .LeadingMargin, relatedBy: .Equal, toItem: view, attribute: .LeadingMargin, multiplier: 1.0, constant: 8),
-                NSLayoutConstraint(item: textField, attribute: .TrailingMargin, relatedBy: .Equal, toItem: view, attribute: .TrailingMargin, multiplier: 1.0, constant: -8)
+                NSLayoutConstraint(item: textField, attribute: .leadingMargin, relatedBy: .equal, toItem: view, attribute: .leadingMargin, multiplier: 1.0, constant: 8),
+                NSLayoutConstraint(item: textField, attribute: .trailingMargin, relatedBy: .equal, toItem: view, attribute: .trailingMargin, multiplier: 1.0, constant: -8)
             ])
         }
     }

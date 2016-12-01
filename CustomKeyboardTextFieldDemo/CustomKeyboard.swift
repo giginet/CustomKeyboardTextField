@@ -36,7 +36,7 @@ class PokemonPickerKeyboard: UIPickerViewKeyboard<PokemonPickerKeyboardDataSourc
 
     fileprivate func updateTextField(for row: Int) {
         textField?.text = pickerKeyboardDataSource.elements[row]
-        textField?.leftViewMode = .Always
+        textField?.leftViewMode = .always
         textField?.leftView = iconView(row)
     }
 
