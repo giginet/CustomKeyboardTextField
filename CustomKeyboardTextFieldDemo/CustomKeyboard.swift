@@ -13,7 +13,7 @@ class PokemonPickerKeyboard: UIPickerViewKeyboard<PokemonPickerKeyboardDataSourc
     required init(with textField: UITextField, pickerKeyboardViewDataSource: PokemonPickerKeyboardDataSource) {
         super.init(with: textField, pickerKeyboardViewDataSource: pickerKeyboardViewDataSource)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -44,7 +44,7 @@ class PokemonPickerKeyboard: UIPickerViewKeyboard<PokemonPickerKeyboardDataSourc
         textField?.leftView = iconView(row)
     }
 
-    override func updateTextField() {        
+    override func updateTextField() {
         updateTextField(for: selectedRow(inComponent: 0))
     }
 }
