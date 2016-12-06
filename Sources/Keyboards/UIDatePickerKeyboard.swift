@@ -56,9 +56,9 @@ public extension UIDatePickerKeyboardDataSource {
     }
 }
 
-open class UIDatePickerKeyboard<DataSource: UIDatePickerKeyboardDataSource>: UIDatePicker, CustomKeyboardView {
-    open let datePickerKeyboardDataSource: DataSource
-    weak open var textField: UITextField? = nil
+public class UIDatePickerKeyboard<DataSource: UIDatePickerKeyboardDataSource>: UIDatePicker, CustomKeyboardView {
+    public let datePickerKeyboardDataSource: DataSource
+    weak public var textField: UITextField? = nil
 
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

@@ -12,9 +12,9 @@ public extension UIPickerViewKeyboardDataSource {
     }
 }
 
-open class UIPickerViewKeyboard<DataSource: UIPickerViewKeyboardDataSource>: UIPickerView, UIPickerViewDelegate, CustomKeyboardView, UIPickerViewDataSource {
-    open let pickerKeyboardDataSource: DataSource
-    weak open var textField: UITextField? = nil
+public class UIPickerViewKeyboard<DataSource: UIPickerViewKeyboardDataSource>: UIPickerView, UIPickerViewDelegate, CustomKeyboardView, UIPickerViewDataSource {
+    public let pickerKeyboardDataSource: DataSource
+    weak public var textField: UITextField? = nil
 
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

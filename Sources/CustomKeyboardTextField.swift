@@ -18,13 +18,13 @@ open class CustomKeyboardTextField<KeyboardViewProvider: CustomKeyboardProvider>
         return KeyboardViewProvider()
     }
 
-    fileprivate(set) var customKeyboardView: CustomKeyboardView? {
+    private(set) var customKeyboardView: CustomKeyboardView? {
         didSet {
             inputView = customKeyboardView as? UIView
         }
     }
 
-    fileprivate(set) var customKeyboardAccessoryView: CustomKeyboardAccessoryView? {
+    private(set) var customKeyboardAccessoryView: CustomKeyboardAccessoryView? {
         didSet {
             inputAccessoryView = customKeyboardAccessoryView as? UIView
         }
@@ -46,7 +46,7 @@ open class CustomKeyboardTextField<KeyboardViewProvider: CustomKeyboardProvider>
         fatalError("init(coder:) has not been implemented")
     }
 
-    fileprivate func setupCustomKeyboard() {
+    private func setupCustomKeyboard() {
         customKeyboardView = provider.inputView(with: self)
         customKeyboardAccessoryView = provider.inputAccessoryView(with: self)
     }

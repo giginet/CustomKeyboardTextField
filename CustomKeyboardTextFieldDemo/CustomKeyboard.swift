@@ -32,13 +32,13 @@ class PokemonPickerKeyboard: UIPickerViewKeyboard<PokemonPickerKeyboardDataSourc
         return rowHeight
     }
 
-    fileprivate func iconView(_ row: Int) -> UIImageView {
+    private func iconView(_ row: Int) -> UIImageView {
         let pokemonName = pickerView(self, titleForRow: row, forComponent: 0)!
         let image = UIImage(named: "\(pokemonName).png")
         return UIImageView(image: image)
     }
 
-    fileprivate func updateTextField(for row: Int) {
+    private func updateTextField(for row: Int) {
         textField?.text = pickerKeyboardDataSource.elements[row]
         textField?.leftViewMode = .always
         textField?.leftView = iconView(row)
@@ -108,7 +108,7 @@ class GamePadKeyboardView: UIView, CustomKeyboardView {
         }
     }
 
-    fileprivate func insertText(_ insertText: String) {
+    private func insertText(_ insertText: String) {
         if let text = textField?.text {
             inputText = "\(text) \(insertText)"
         }

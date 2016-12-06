@@ -3,7 +3,7 @@ import UIKit
 open class ToolbarKeyboardAccessoryView: UIToolbar, CustomKeyboardAccessoryView {
     var toolbar = UIToolbar()
     let toolbarHeight: CGFloat = 44.0
-    weak open var textField: UITextField? = nil
+    weak public var textField: UITextField? = nil
 
     required public init(with textField: UITextField) {
         super.init(frame: CGRect(x: 0, y: 0, width: 0, height: toolbarHeight))
