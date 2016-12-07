@@ -2,40 +2,40 @@ import UIKit
 
 public protocol UIDatePickerKeyboardDataSource {
     init()
-    var calendar: NSCalendar { get }
-    var date: NSDate { get }
-    var locale: NSLocale { get }
-    var timeZone: NSTimeZone { get }
-    var maximumDate: NSDate? { get }
-    var minimumDate: NSDate? { get }
+    var calendar: Calendar { get }
+    var date: Date { get }
+    var locale: Locale { get }
+    var timeZone: TimeZone { get }
+    var maximumDate: Date? { get }
+    var minimumDate: Date? { get }
     var minuteInterval: NSInteger { get }
-    var countDownDuration: NSTimeInterval { get }
+    var countDownDuration: TimeInterval { get }
     var datePickerMode: UIDatePickerMode { get }
     var timeFormat: String { get }
 }
 
 public extension UIDatePickerKeyboardDataSource {
-    var calendar: NSCalendar {
-        return NSCalendar.currentCalendar()
+    var calendar: Calendar {
+        return Calendar.current
     }
 
-    var date: NSDate {
-        return NSDate()
+    var date: Date {
+        return Date()
     }
 
-    var locale: NSLocale {
-        return NSLocale.currentLocale()
+    var locale: Locale {
+        return Locale.current
     }
 
-    var timeZone: NSTimeZone {
-        return NSTimeZone.defaultTimeZone()
+    var timeZone: TimeZone {
+        return TimeZone.current
     }
 
-    var maximumDate: NSDate? {
+    var maximumDate: Date? {
         return nil
     }
 
-    var minimumDate: NSDate? {
+    var minimumDate: Date? {
         return nil
     }
 
@@ -43,12 +43,12 @@ public extension UIDatePickerKeyboardDataSource {
         return 1
     }
 
-    var countDownDuration: NSTimeInterval {
+    var countDownDuration: TimeInterval {
         return 0
     }
 
     var datePickerMode: UIDatePickerMode {
-        return .DateAndTime
+        return .dateAndTime
     }
 
     var timeFormat: String {
@@ -80,25 +80,25 @@ public class UIDatePickerKeyboard<DataSource: UIDatePickerKeyboardDataSource>: U
         countDownDuration = datePickerKeyboardViewDataSource.countDownDuration
         datePickerMode = datePickerKeyboardViewDataSource.datePickerMode
 
-        addTarget(self, action: #selector(dateIsChanged(_:)), forControlEvents: .ValueChanged)
+        addTarget(self, action: #selector(dateIsChanged(_:)), for: .valueChanged)
     }
 
-    func dateIsChanged(sender: UIDatePicker) {
+    func dateIsChanged(_ sender: UIDatePicker) {
         updateTextField()
     }
 
-    public var inputText: String? {
-        let formatter = NSDateFormatter()
+    open var inputText: String? {
+        let formatter = DateFormatter()
         formatter.dateFormat = datePickerKeyboardDataSource.timeFormat
         formatter.timeZone = datePickerKeyboardDataSource.timeZone
-        return formatter.stringFromDate(date)
+        return formatter.string(from: date)
     }
 
-    public func updateTextField() {
+    open func updateTextField() {
         textField?.text = inputText
     }
 
-    public func reset() {
+    open func reset() {
         date = datePickerKeyboardDataSource.date
     }
 }
@@ -117,8 +117,12 @@ struct UIDatePickerKeyboardViewProvider<DataSource: UIDatePickerKeyboardDataSour
     }
 }
 
-public class UIDatePickerKeyboardTextField<DataSource: UIDatePickerKeyboardDataSource>: CustomKeyboardTextField<UIDatePickerKeyboardViewProvider<DataSource>> {
+open class UIDatePickerKeyboardTextField<DataSource: UIDatePickerKeyboardDataSource>: CustomKeyboardTextField<UIDatePickerKeyboardViewProvider<DataSource>> {
     public required init() {
         super.init(frame: CGRect.zero)
+    }
+
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

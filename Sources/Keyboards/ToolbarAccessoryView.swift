@@ -1,6 +1,6 @@
 import UIKit
 
-public class ToolbarKeyboardAccessoryView: UIToolbar, CustomKeyboardAccessoryView {
+open class ToolbarKeyboardAccessoryView: UIToolbar, CustomKeyboardAccessoryView {
     var toolbar = UIToolbar()
     let toolbarHeight: CGFloat = 44.0
     weak public var textField: UITextField? = nil
@@ -16,19 +16,19 @@ public class ToolbarKeyboardAccessoryView: UIToolbar, CustomKeyboardAccessoryVie
         fatalError("init(coder:) has not been implemented")
     }
 
-    func doneButtonDidTap(sender: UIBarButtonItem) {
+    func doneButtonDidTap(_ sender: UIBarButtonItem) {
         textField?.endEditing(true)
     }
 
-    func cancelButtonDidTap(sender: UIBarButtonItem) {
+    func cancelButtonDidTap(_ sender: UIBarButtonItem) {
         textField?.editingDidCancel()
         textField?.endEditing(true)
     }
 
     var barItems: [UIBarButtonItem] {
-        let cancelItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: #selector(cancelButtonDidTap(_:)))
-        let spaceItem = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
-        let doneItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(doneButtonDidTap(_:)))
+        let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonDidTap(_:)))
+        let spaceItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonDidTap(_:)))
 
         return [cancelItem, spaceItem, doneItem]
     }

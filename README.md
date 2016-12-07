@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/giginet/CustomKeyboardTextField.svg?branch=master)](https://travis-ci.org/giginet/CustomKeyboardTextField) 
 [![codecov](https://codecov.io/gh/giginet/CustomKeyboardTextField/branch/master/graph/badge.svg)](https://codecov.io/gh/giginet/CustomKeyboardTextField)
-[![Language](https://img.shields.io/badge/language-Swift%202.2%7C2.3-orange.svg)](https://swift.org)
+[![Language](https://img.shields.io/badge/language-Swift%203.0-orange.svg)](https://swift.org)
 [![Platform](https://img.shields.io/cocoapods/p/CustomKeyboardTextField.svg?style=flat)](http://cocoadocs.org/docsets/CustomKeyboardTextField)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/CustomKeyboardTextField.svg)](https://img.shields.io/cocoapods/v/CustomKeyboardTextField.svg)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
@@ -117,7 +117,7 @@ struct MyKeyboardProvider: CustomKeyboardProvider {
 typealias MyKeyboardTextField = CustomKeyboardTextField<MyKeyboardProvider>
 ```
 
-See [sample implementation](https://github.com/giginet/CustomKeyboardTextField/blob/master/CustomKeyboardTextFieldDemo/CustomKeyboard.swift#L69) for detail.
+See [sample implementation](https://github.com/giginet/CustomKeyboardTextField/blob/master/CustomKeyboardTextFieldDemo/CustomKeyboard.swift#L58) for detail.
 
 
 # Installation
@@ -139,7 +139,7 @@ pod "CustomKeyboardTextField"
 # Requirements
 
 - iOS 8 or above
-- Swift 2.2, 2.3
+- Swift 3.0
 
 # Author
 

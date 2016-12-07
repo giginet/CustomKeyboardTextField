@@ -14,7 +14,11 @@ class PokemonPickerKeyboard: UIPickerViewKeyboard<PokemonPickerKeyboardDataSourc
         super.init(with: textField, pickerKeyboardViewDataSource: pickerKeyboardViewDataSource)
     }
 
-    func pickerView(picker: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    func pickerView(_ picker: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
         if let view = view {
             return view
         }
@@ -24,11 +28,11 @@ class PokemonPickerKeyboard: UIPickerViewKeyboard<PokemonPickerKeyboardDataSourc
         return view
     }
 
-    func pickerView(pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         return rowHeight
     }
 
-    private func iconView(row: Int) -> UIImageView {
+    private func iconView(_ row: Int) -> UIImageView {
         let pokemonName = pickerView(self, titleForRow: row, forComponent: 0)!
         let image = UIImage(named: "\(pokemonName).png")
         return UIImageView(image: image)
@@ -36,13 +40,12 @@ class PokemonPickerKeyboard: UIPickerViewKeyboard<PokemonPickerKeyboardDataSourc
 
     private func updateTextField(for row: Int) {
         textField?.text = pickerKeyboardDataSource.elements[row]
-        textField?.leftViewMode = .Always
+        textField?.leftViewMode = .always
         textField?.leftView = iconView(row)
     }
 
     override func updateTextField() {
-        let selectedRow = selectedRowInComponent(0)
-        updateTextField(for: selectedRow)
+        updateTextField(for: selectedRow(inComponent: 0))
     }
 }
 
@@ -87,11 +90,11 @@ class GamePadKeyboardView: UIView, CustomKeyboardView {
         ]
 
         for button in buttons {
-            button.addTarget(self, action: #selector(buttonDidTap(_:)), forControlEvents: .TouchUpInside)
+            button?.addTarget(self, action: #selector(buttonDidTap(_:)), for: .touchUpInside)
         }
     }
 
-    func buttonDidTap(sender: UIButton) {
+    func buttonDidTap(_ sender: UIButton) {
         switch sender {
         case aButton: insertText("A")
         case bButton: insertText("B")
@@ -105,7 +108,7 @@ class GamePadKeyboardView: UIView, CustomKeyboardView {
         }
     }
 
-    private func insertText(insertText: String) {
+    private func insertText(_ insertText: String) {
         if let text = textField?.text {
             inputText = "\(text) \(insertText)"
         }
@@ -122,7 +125,7 @@ struct GamePadKeyboardProvider: CustomKeyboardProvider {
 
     func inputView(with textField: UITextField) -> CustomKeyboardView? {
         let gamePadNib = UINib(nibName: "GamePadKeyboardView", bundle: nil)
-        if let gamePad = gamePadNib.instantiateWithOwner(nil, options: nil).first as? GamePadKeyboardView {
+        if let gamePad = gamePadNib.instantiate(withOwner: nil, options: nil).first as? GamePadKeyboardView {
             gamePad.textField = textField
             return gamePad
         }
