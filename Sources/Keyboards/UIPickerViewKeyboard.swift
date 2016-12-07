@@ -12,7 +12,7 @@ public extension UIPickerViewKeyboardDataSource {
     }
 }
 
-public class UIPickerViewKeyboard<DataSource: UIPickerViewKeyboardDataSource>: UIPickerView, UIPickerViewDelegate, CustomKeyboardView, UIPickerViewDataSource {
+open class UIPickerViewKeyboard<DataSource: UIPickerViewKeyboardDataSource>: UIPickerView, UIPickerViewDelegate, CustomKeyboardView, UIPickerViewDataSource {
     public let pickerKeyboardDataSource: DataSource
     weak public var textField: UITextField? = nil
 
