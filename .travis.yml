@@ -10,6 +10,7 @@ matrix:
     osx_image: xcode8.1
     before_install:
       - bundle install
+      - brew install swiftlint
     script:
     - pod spec lint
     - swiftlint
