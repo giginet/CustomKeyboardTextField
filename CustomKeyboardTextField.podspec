@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "CustomKeyboardTextField"
-  s.version      = "0.2"
+  s.version      = "0.3"
   s.summary      = "Provides easy way to make type safety TextField with custom keyboards."
 
   s.description  = <<-DESC
